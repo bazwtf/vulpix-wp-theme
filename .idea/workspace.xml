@@ -19,8 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bde75748-afbf-4dac-9a9b-aee1cda268ba" name="Default Changelist" comment="xml">
+    <list default="true" id="bde75748-afbf-4dac-9a9b-aee1cda268ba" name="Default Changelist" comment="basic functions.php added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +55,11 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -62,7 +68,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1603548815734</updated>
-      <workItem from="1603548816889" duration="1566000" />
+      <workItem from="1603548816889" duration="1872000" />
     </task>
     <task id="LOCAL-00001" summary="theme screenshot">
       <created>1603549069570</created>
@@ -92,7 +98,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603550553540</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="basic functions.php added">
+      <created>1603551771790</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1603551771790</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,7 +127,8 @@
     <MESSAGE value="style.css added" />
     <MESSAGE value="style.css updated" />
     <MESSAGE value="xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="xml" />
+    <MESSAGE value="basic functions.php added" />
+    <option name="LAST_COMMIT_MESSAGE" value="basic functions.php added" />
   </component>
   <component name="WindowStateProjectService">
     <state x="739" y="389" key="NewPhpFileDialog" timestamp="1603551526483">

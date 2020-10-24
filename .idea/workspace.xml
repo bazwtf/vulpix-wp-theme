@@ -19,8 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bde75748-afbf-4dac-9a9b-aee1cda268ba" name="Default Changelist" comment="style.css added">
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
+    <list default="true" id="bde75748-afbf-4dac-9a9b-aee1cda268ba" name="Default Changelist" comment="xml">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +46,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -61,7 +62,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1603548815734</updated>
-      <workItem from="1603548816889" duration="670000" />
+      <workItem from="1603548816889" duration="1566000" />
     </task>
     <task id="LOCAL-00001" summary="theme screenshot">
       <created>1603549069570</created>
@@ -77,7 +78,21 @@
       <option name="project" value="LOCAL" />
       <updated>1603549720095</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="style.css updated">
+      <created>1603549740219</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1603549740219</updated>
+    </task>
+    <task id="LOCAL-00004" summary="xml">
+      <created>1603550553540</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1603550553540</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -97,12 +112,18 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="theme screenshot" />
     <MESSAGE value="style.css added" />
-    <option name="LAST_COMMIT_MESSAGE" value="style.css added" />
+    <MESSAGE value="style.css updated" />
+    <MESSAGE value="xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="xml" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="515" y="199" key="Vcs.Push.Dialog.v2" timestamp="1603549072856">
+    <state x="739" y="389" key="NewPhpFileDialog" timestamp="1603551526483">
       <screen x="0" y="23" width="1920" height="1031" />
     </state>
-    <state x="515" y="199" key="Vcs.Push.Dialog.v2/0.23.1920.1031/1920.23.1920.1057@0.23.1920.1031" timestamp="1603549072856" />
+    <state x="739" y="389" key="NewPhpFileDialog/0.23.1920.1031/1920.23.1920.1057@0.23.1920.1031" timestamp="1603551526483" />
+    <state x="515" y="199" key="Vcs.Push.Dialog.v2" timestamp="1603550557808">
+      <screen x="0" y="23" width="1920" height="1031" />
+    </state>
+    <state x="515" y="199" key="Vcs.Push.Dialog.v2/0.23.1920.1031/1920.23.1920.1057@0.23.1920.1031" timestamp="1603550557808" />
   </component>
 </project>

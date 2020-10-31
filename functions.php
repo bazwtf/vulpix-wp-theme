@@ -64,9 +64,10 @@ add_action( 'widgets_init', 'vulpix_remove_default_widgets', 11 );
  */
 function vulpix_theme_scripts() {
 	/* CSS*/
-
-	/* Generic */
 	wp_enqueue_style( 'vulpix-reset', VULPIX_ROOT_URI . '/assets/css/reset.css', null, VULPIX_VERSION );
+
+	/* JS */
+	wp_enqueue_script( 'vulpix-scripts', VULPIX_ROOT_URI . '/assets/js/scripts.js', array(), VULPIX_VERSION, true );
 
 }
 add_action( 'wp_enqueue_scripts', 'vulpix_theme_scripts' );

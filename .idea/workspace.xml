@@ -19,8 +19,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bde75748-afbf-4dac-9a9b-aee1cda268ba" name="Default Changelist" comment="added scripts.js and global.css to the theme and enqueued">
+    <list default="true" id="bde75748-afbf-4dac-9a9b-aee1cda268ba" name="Default Changelist" comment="workspace.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/404.php" beforeDir="false" afterPath="$PROJECT_DIR$/404.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive.php" beforeDir="false" afterPath="$PROJECT_DIR$/archive.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inc/activation.php" beforeDir="false" afterPath="$PROJECT_DIR$/inc/activation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inc/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/inc/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inc/plugins.php" beforeDir="false" afterPath="$PROJECT_DIR$/inc/plugins.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inc/template-tags.php" beforeDir="false" afterPath="$PROJECT_DIR$/inc/template-tags.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/single.php" beforeDir="false" afterPath="$PROJECT_DIR$/single.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +80,7 @@
       <option name="presentableId" value="Default" />
       <updated>1603548815734</updated>
       <workItem from="1603548816889" duration="2719000" />
-      <workItem from="1604187409715" duration="1469000" />
+      <workItem from="1604187409715" duration="4185000" />
     </task>
     <task id="LOCAL-00001" summary="theme screenshot">
       <created>1603549069570</created>
@@ -134,7 +145,21 @@
       <option name="project" value="LOCAL" />
       <updated>1604188528371</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="added base WordPress php templates">
+      <created>1604188948605</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1604188948605</updated>
+    </task>
+    <task id="LOCAL-00011" summary="workspace.xml">
+      <created>1604189240587</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1604189240587</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,16 +187,18 @@
     <MESSAGE value="reset.css added" />
     <MESSAGE value="reset.css enqueued" />
     <MESSAGE value="added scripts.js and global.css to the theme and enqueued" />
-    <option name="LAST_COMMIT_MESSAGE" value="added scripts.js and global.css to the theme and enqueued" />
+    <MESSAGE value="added base WordPress php templates" />
+    <MESSAGE value="workspace.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="workspace.xml" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="739" y="389" key="NewPhpFileDialog" timestamp="1604188890652">
+    <state x="739" y="389" key="NewPhpFileDialog" timestamp="1604190976758">
       <screen x="0" y="23" width="1920" height="1031" />
     </state>
-    <state x="739" y="389" key="NewPhpFileDialog/0.23.1920.1031/1920.23.1920.1057@0.23.1920.1031" timestamp="1604188890652" />
-    <state x="515" y="199" key="Vcs.Push.Dialog.v2" timestamp="1604187418615">
+    <state x="739" y="389" key="NewPhpFileDialog/0.23.1920.1031/1920.23.1920.1057@0.23.1920.1031" timestamp="1604190976758" />
+    <state x="515" y="199" key="Vcs.Push.Dialog.v2" timestamp="1604189245259">
       <screen x="0" y="23" width="1920" height="1031" />
     </state>
-    <state x="515" y="199" key="Vcs.Push.Dialog.v2/0.23.1920.1031/1920.23.1920.1057@0.23.1920.1031" timestamp="1604187418615" />
+    <state x="515" y="199" key="Vcs.Push.Dialog.v2/0.23.1920.1031/1920.23.1920.1057@0.23.1920.1031" timestamp="1604189245259" />
   </component>
 </project>

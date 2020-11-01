@@ -15,5 +15,4 @@ defined( 'ABSPATH' ) or die( 'You shall not pass!' );
 
 <body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">
 <?php do_action( 'body_open' ); ?>
-
-<a name="scrolltotop"></a>
+<?php get_template_part( 'template-parts/template', 'site-header' ); ?>

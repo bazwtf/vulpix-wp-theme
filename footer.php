@@ -7,3 +7,17 @@ defined( 'ABSPATH' ) or die( 'You shall not pass!' );
  * @package Vulpix
  * @since Vulpix 1.0.0
  */
+?>
+<footer>
+	<a class="to-the-top" href="#site-header">
+		<?php
+		// Print the scroll to top link
+		printf( __( 'To the top %s', 'vulpix' ), '<span class="arrow" aria-hidden="true">&uarr;</span>' );
+		?>
+	</a>
+</footer>
+
+<?php wp_footer(); ?>
+
+</body>
+</html>

@@ -1,7 +1,7 @@
 <?php
 defined( 'ABSPATH' ) or die( 'You shall not pass!' );
 /**
- * Head template
+ * Head template part
  *
  * @package Vulpix
  * @since Vulpix 1.0.0

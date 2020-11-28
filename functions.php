@@ -13,7 +13,6 @@ defined( 'ABSPATH' ) or die( 'You shall not pass!' );
  */
 define( 'VULPIX_VERSION', wp_get_theme( basename( __DIR__ ) )->get( 'Version' ) );
 define( 'VULPIX_ROOT', get_template_directory() );
-define( 'VULPIX_ROOT_URI', get_template_directory_uri() );
 
 /**
  * Theme Setup
@@ -65,12 +64,12 @@ add_action( 'widgets_init', 'vulpix_remove_default_widgets', 11 );
  */
 function vulpix_theme_scripts() {
 	/* CSS*/
-	wp_enqueue_style( 'vulpix-reset', VULPIX_ROOT_URI . '/assets/css/reset.css', null, VULPIX_VERSION );
-	wp_enqueue_style( 'reflex', VULPIX_ROOT_URI . '/assets/css/reflex.css', null, '2.0.4' );
-	wp_enqueue_style( 'vulpix-global', VULPIX_ROOT_URI . '/assets/css/global.css', null, VULPIX_VERSION );
+	wp_enqueue_style( 'reflex', get_theme_file_uri( '/assets/css/reflex.css' ), null, '2.0.4' );
+	wp_enqueue_style( 'vulpix-reset', get_theme_file_uri( '/assets/css/reset.css' ), null, VULPIX_VERSION );
+	wp_enqueue_style( 'vulpix-global', get_theme_file_uri( '/assets/css/global.css' ), null, VULPIX_VERSION );
 
 	/* JS */
-	wp_enqueue_script( 'vulpix-scripts', VULPIX_ROOT_URI . '/assets/js/scripts.js', [ 'jquery' ], VULPIX_VERSION, true );
-
+	wp_enqueue_script( 'html5shiv', get_theme_file_uri( '/assets/js/html5shiv.js' ), [ 'jquery' ], VULPIX_VERSION, true );
+	wp_enqueue_script( 'vulpix-scripts', get_theme_file_uri( '/assets/js/scripts.js' ), [ 'jquery' ], VULPIX_VERSION, true );
 }
 add_action( 'wp_enqueue_scripts', 'vulpix_theme_scripts' );

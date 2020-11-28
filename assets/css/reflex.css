@@ -1,4 +1,11 @@
-/* https://github.com/leejordan/reflex */
+/**
+ * Reflex CSS
+ * A lightweight responsive flexbox grid with cross browser support, an inline-block fallback and no polyfills.
+ * Author: Lee Jordan
+ * URI: https://github.com/leejordan/reflex
+ * @package Reflex
+ * @since Reflex 2.0.4
+ */
 
 :root {
     --reflex-columns: 12;

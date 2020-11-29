@@ -10,11 +10,12 @@ defined( 'ABSPATH' ) or die();
 
 get_header();
 ?>
-<main class="site-content">
+<main role="main" class="site-content">
 	<div class="container">
-		<div class="row">
-			<article>
+		<div class="grid">
+			<article class="col-10 offset-md-1">
 				<div class="entry-content">
+					<?php printf( __( '<h1 class="page-title">%s</h1>', 'vulpix' ), get_the_title() ); ?>
 					<?php the_content(); ?>
 				</div>
 			</article>

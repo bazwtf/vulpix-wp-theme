@@ -4,5 +4,5 @@
 > - [Vulpix Bulbapedia entry](https://bulbapedia.bulbagarden.net/wiki/Vulpix_(Pok%C3%A9mon))
 
 ## Project Goals
-This project aims to produce an accessible and simple WordPress theme that uses Advanced Custom Fields.
+This project aims to produce an accessible and simple WordPress theme.
 

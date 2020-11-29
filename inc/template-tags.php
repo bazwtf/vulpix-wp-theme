@@ -1,5 +1,5 @@
 <?php
-defined( 'ABSPATH' ) or die( 'You shall not pass!' );
+defined( 'ABSPATH' ) or die( 'Vulpix, use Flamethrower!' );
 /**
  * Template tags
  *

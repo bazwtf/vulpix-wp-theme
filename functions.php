@@ -15,6 +15,13 @@ define( 'VULPIX_VERSION', wp_get_theme( basename( __DIR__ ) )->get( 'Version' ) 
 define( 'VULPIX_ROOT', get_template_directory() );
 
 /**
+ * Required
+ *
+ * @since    1.0.0
+ */
+require_once( VULPIX_ROOT . '/inc/template-tags.php' );
+
+/**
  * Theme Setup
  *
  * @since    1.0.0

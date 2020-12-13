@@ -26,14 +26,7 @@ function vpx_the_post_meta( $echo = true ) {
         esc_html( get_the_time() )
     );
 
-    // If $echo is true then echo $post_meta
-    if ( true === $echo ) {
-        echo $post_meta;
-        return '';
-    }
-
-    // If $echo is false then pass $post_meta as string
-    return $post_meta;
+    return vpx_return_string_handler( $post_meta, $echo );
 }
 
 /**
@@ -57,15 +50,194 @@ function vpx_the_post_thumbnail( $size = 'thumbnail', $echo = true ) {
             %2$s
         </a>',
         esc_url( get_the_permalink() ),
-        get_the_post_thumbnail( null, $size, [ 'class' => 'post-thumbnail-img' ] )
+        get_the_post_thumbnail( null, $size, [ 'class' => 'post-thumbnail--img' ] )
     );
 
-    // If $echo is true then echo $thumbnail object
-    if ( true === $echo ) {
-        echo $thumbnail;
+    return vpx_return_string_handler( $thumbnail, $echo );
+}
+
+/**
+ * The post thumbnail title
+ *
+ * @since Vulpix 1.0.0
+ * @param string $heading_size heading size
+ * @param bool $echo default true
+ * @return string empty or post title content
+ */
+function vpx_the_post_thumbnail_title( $heading_size = 'h2', $echo = true ) {
+
+    // If there is no title return empty
+    if ( true === empty( get_the_title() ) ) {
         return '';
     }
 
-    // If $echo is false then pass $thumbnail object as a string
-    return $thumbnail;
+    // Set $title with post title object
+    $title = sprintf(
+        '<%1$s class="post-title"><a href="%2$s">%3$s</a></%1$s>',
+        esc_attr( $heading_size ),
+        esc_url( get_the_permalink() ),
+        esc_html( get_the_title() )
+    );
+
+    return vpx_return_string_handler( $title, $echo );
+}
+
+/**
+ * Post title
+ *
+ * @since Vulpix 1.0.0
+ * @param string $heading_size default h1
+ * @param bool $echo default true
+ * @return string empty or title object
+ */
+function vpx_the_title( $heading_size = 'h1', $echo = true ) {
+
+    // Get the title
+    $title = get_the_title();
+
+    // If no title then return empty
+    if ( ! $title ) {
+        return '';
+    }
+
+    // Set title object
+    $title = sprintf(
+        '<%1$s class="post-title">%2$s</%1$s>',
+        esc_attr( $heading_size ),
+        esc_html( $title )
+    );
+
+    return vpx_return_string_handler( $title, $echo );
+}
+
+/**
+ * The featured image
+ *
+ * @since Vulpix 1.0.0
+ * @param bool $echo default true
+ * @return string empty or featured content
+ */
+function vpx_the_featured_image( $echo = true ) {
+
+    // If there is no featured image then return
+    if ( ! has_post_thumbnail() ) {
+        return '';
+    }
+
+    // Get caption
+    $caption = vpx_the_image_caption( false );
+
+    // Set $featured_content object
+    $featured_content = sprintf(
+    '<figure class="post-featured-content">
+            %1$s
+            %2$s
+        </figure>',
+        get_the_post_thumbnail( null, 'large', [ 'class' => 'featured-content--img' ] ),
+        ( ! $caption ? '' : $caption )
+    );
+
+    return vpx_return_string_handler( $featured_content, $echo );
+}
+
+/**
+ * Get the image caption text
+ *
+ * @since Vulpix 1.0.0
+ * @return string empty or image caption text
+ */
+function vpx_get_the_image_caption() {
+
+    // Get the thumbnail caption and set it to $caption
+    $caption = get_post( get_post_thumbnail_id() )->post_excerpt;
+
+    return vpx_return_string_handler( $caption, false );
+}
+
+/**
+ * The image caption
+ *
+ * @since Vulpix 1.0.0
+ * @param bool $echo default true
+ * @return string empty or image caption object
+ */
+function vpx_the_image_caption( $echo = true ) {
+
+    // Get the thumbnail caption and set it to $caption
+    $caption_text = vpx_get_the_image_caption();
+
+    // If no $caption_text then return
+    if ( ! $caption_text ) {
+        return '';
+    }
+
+    // Set $caption object
+    $caption = sprintf( '<figcaption class="caption">%s</figcaption>', esc_html( $caption_text ) );
+
+    return vpx_return_string_handler( $caption, $echo );
+}
+
+/**
+ * Return handler for string
+ *
+ * @since Vulpix 1.0.0
+ * @param string $value string to feed into the handler
+ * @param bool $echo default true
+ * @return string empty or handled string content
+ */
+function vpx_return_string_handler( $value, $echo = true ) {
+
+    // If no $value then return
+    if ( ! $value ) {
+        return '';
+    }
+
+    // If $echo is true then echo $value
+    if ( true === $echo ) {
+        echo $value;
+        return '';
+    }
+
+    // If $echo is false then pass $value object string
+    return $value;
+}
+
+/**
+ * Get the category name
+ *
+ * @since Vulpix 1.0.0
+ * @return mixed|string emptu or category name
+ */
+function vpx_get_the_category() {
+
+    // Get the array of categories
+    $category = get_the_category();
+
+    // If error or there is no category
+    if ( is_wp_error( $category ) || ! $category[0] ) {
+        return '';
+    }
+
+    // Return category name
+    return $category[0]->category_nicename;
+}
+
+/**
+ * The category
+ *
+ * @since Vulpix 1.0.0
+ * @param bool $echo default true
+ * @return string empty or category object
+ */
+function vpx_the_category( $echo = true ) {
+
+    $category = vpx_get_the_category();
+
+    if ( ! $category ) {
+        return '';
+    }
+
+    $category = sprintf( '<span class="category">%s</span>', $category );
+
+    return vpx_return_string_handler( $category, $echo );
 }

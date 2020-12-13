@@ -5,11 +5,12 @@ defined( 'ABSPATH' ) or die( 'Vulpix, use Flamethrower!' );
  * Vulpix functions and definitions
  *
  * @link https://codex.wordpress.org/Functions_File_Explained
- *
  */
 
 /**
  * Constants
+ *
+ * @since Vulpix 1.0.0
  */
 define( 'VULPIX_VERSION', wp_get_theme( basename( __DIR__ ) )->get( 'Version' ) );
 define( 'VULPIX_ROOT', get_template_directory() );
@@ -17,14 +18,15 @@ define( 'VULPIX_ROOT', get_template_directory() );
 /**
  * Required
  *
- * @since    1.0.0
+ * @since Vulpix 1.0.0
  */
 require_once( VULPIX_ROOT . '/inc/template-tags.php' );
+require_once( VULPIX_ROOT . '/inc/shortcodes.php' );
 
 /**
  * Theme Setup
  *
- * @since    1.0.0
+ * @since Vulpix 1.0.0
  */
 function vulpix_theme_setup() {
 
@@ -45,9 +47,10 @@ add_action( 'after_setup_theme', 'vulpix_theme_setup' );
 /**
  * Remove default widgets from WP.
  *
- * @since    1.0.0
+ * @since Vulpix 1.0.0
  */
 function vulpix_remove_default_widgets() {
+
 	unregister_widget( 'WP_Widget_Pages' );
 	unregister_widget( 'WP_Widget_Calendar' );
 	unregister_widget( 'WP_Widget_Archives' );
@@ -67,9 +70,10 @@ add_action( 'widgets_init', 'vulpix_remove_default_widgets', 11 );
 /**
  * Enqueues style and script files.
  *
- * @since    1.0.0
+ * @since Vulpix 1.0.0
  */
 function vulpix_theme_scripts() {
+
 	/* CSS*/
 	wp_enqueue_style( 'reflex', get_theme_file_uri( '/assets/css/reflex.css' ), null, '2.0.4' );
 	wp_enqueue_style( 'vulpix-reset', get_theme_file_uri( '/assets/css/reset.css' ), null, VULPIX_VERSION );

@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) or die( 'Vulpix, use Flamethrower!' );
     <div class="col-6 post-list__details">
         <?php
         the_category();
-        the_title();
+        vpx_the_post_thumbnail_title( 'h3' );
         vpx_the_post_meta();
         ?>
     </div>

@@ -7,7 +7,7 @@ defined( 'ABSPATH' ) or die( 'Vulpix, use Flamethrower!' );
  * @since Vulpix 1.0.0
  */
 ?>
-<article class="post-list container-full">
+<article class="post-list">
     <div class="col-6 post-list__thumbnail-container">
         <?php vpx_the_post_thumbnail(); ?>
     </div>

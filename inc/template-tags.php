@@ -76,7 +76,7 @@ function vpx_the_post_thumbnail_title( $heading_size = 'h2', $echo = true ) {
         '<%1$s class="post-title"><a href="%2$s">%3$s</a></%1$s>',
         esc_attr( $heading_size ),
         esc_url( get_the_permalink() ),
-        esc_html( get_the_title() )
+        esc_html( __( get_the_title(), 'vulpix' ) )
     );
 
     return vpx_return_string_handler( $title, $echo );
@@ -104,7 +104,7 @@ function vpx_the_title( $heading_size = 'h1', $echo = true ) {
     $title = sprintf(
         '<%1$s class="post-title">%2$s</%1$s>',
         esc_attr( $heading_size ),
-        esc_html( $title )
+        esc_html( __( $title, 'vulpix' ) )
     );
 
     return vpx_return_string_handler( $title, $echo );
@@ -172,7 +172,7 @@ function vpx_the_image_caption( $echo = true ) {
     }
 
     // Set $caption object
-    $caption = sprintf( '<figcaption class="caption">%s</figcaption>', esc_html( $caption_text ) );
+    $caption = sprintf( '<figcaption class="caption">%s</figcaption>', esc_html( __( $caption_text, 'vulpix' ) ) );
 
     return vpx_return_string_handler( $caption, $echo );
 }
@@ -203,26 +203,6 @@ function vpx_return_string_handler( $value, $echo = true ) {
 }
 
 /**
- * Get the category name
- *
- * @since Vulpix 1.0.0
- * @return mixed|string emptu or category name
- */
-function vpx_get_the_category() {
-
-    // Get the array of categories
-    $category = get_the_category();
-
-    // If error or there is no category
-    if ( is_wp_error( $category ) || ! $category[0] ) {
-        return '';
-    }
-
-    // Return category name
-    return $category[0]->category_nicename;
-}
-
-/**
  * The category
  *
  * @since Vulpix 1.0.0
@@ -231,13 +211,23 @@ function vpx_get_the_category() {
  */
 function vpx_the_category( $echo = true ) {
 
-    $category = vpx_get_the_category();
+    // Get the array of categories
+    $category = get_the_category();
 
-    if ( ! $category ) {
+    // If error or there is no category
+    if ( is_wp_error( $category ) || ! $category[0] ) {
         return '';
     }
+    $cat_name = $category[0]->cat_name;
+    $cat_link = get_category_link( $category[0]->cat_ID );
 
-    $category = sprintf( '<span class="category">%s</span>', $category );
+    $category = sprintf(
+        '<span class="category">
+            <a href="%1$s">%2$s</a>
+        </span>',
+        esc_url( $cat_link ),
+        __( $cat_name, 'vulpix' )
+    );
 
     return vpx_return_string_handler( $category, $echo );
 }

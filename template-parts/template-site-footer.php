@@ -10,7 +10,13 @@ defined( 'ABSPATH' ) or die( 'Vulpix, use Flamethrower!' );
 <footer class="site-footer container">
     <div class="grid">
         <div class="col-10 offset-1">
-            <?php // Nav ?>
+            <?php
+            wp_nav_menu(
+                [
+                    'menu'   => 'footer_menu'
+                ]
+            );
+            ?>
         </div>
         <div class="col-md-4 offset-md-4">
             <?php // Logo ?>

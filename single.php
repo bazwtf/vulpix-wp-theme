@@ -11,12 +11,16 @@ get_header();
 ?>
 <main role="main" class="container">
     <div class="grid">
-        <article class="col-12">
+        <article>
             <?php
             while ( have_posts() ) {
                 the_post();
                 get_template_part( 'template-parts/template', 'post-header' );
-                the_content();
+                ?>
+                <div class="col-10 offset-1">
+                    <?php the_content(); ?>
+                </div>
+                <?php
             }
             ?>
         </article>

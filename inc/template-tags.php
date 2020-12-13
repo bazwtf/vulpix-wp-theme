@@ -218,9 +218,14 @@ function vpx_the_category( $echo = true ) {
     if ( is_wp_error( $category ) || ! $category[0] ) {
         return '';
     }
+
+    // Get category name
     $cat_name = $category[0]->cat_name;
+
+    // Get category link
     $cat_link = get_category_link( $category[0]->cat_ID );
 
+    // Set category object
     $category = sprintf(
         '<span class="category">
             <a href="%1$s">%2$s</a>

@@ -19,7 +19,7 @@ function vpx_theme_options_page() {
     <div class="wrap custom-options">
         <header class="custom-options__header">
             <img alt="Vulpix theme screenshot" src="<?php echo esc_url( VULPIX_ROOT_URI ); ?>/screenshot.png" />
-            <h1>Theme Options</h1>
+            <h1><?php echo __( 'Theme Options', 'vulpix' ); ?></h1>
         </header>
         <form method="post" action="options.php">
             <?php
@@ -158,7 +158,6 @@ function vpx_callback_select( $args ) {
                 esc_html( $val )
             );
         }
-
         echo '</select>';
     }
 }

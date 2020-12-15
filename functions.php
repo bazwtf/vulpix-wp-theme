@@ -77,7 +77,7 @@ add_action( 'widgets_init', 'vpx_remove_default_widgets', 11 );
 function vpx_theme_scripts() {
 
 	/* CSS*/
-	wp_enqueue_style( 'reflex', get_theme_file_uri( '/assets/css/reflex.css' ), null, '2.0.4' );
+	wp_enqueue_style( 'reflex', get_theme_file_uri( '/assets/css/reflex.min.css' ), null, '2.0.4' );
 	wp_enqueue_style( 'vulpix-reset', get_theme_file_uri( '/assets/css/reset.css' ), null, VULPIX_VERSION );
 	wp_enqueue_style( 'vulpix-global', get_theme_file_uri( '/assets/css/global.css' ), null, VULPIX_VERSION );
 

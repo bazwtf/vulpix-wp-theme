@@ -30,7 +30,7 @@ require_once( VULPIX_ROOT . '/inc/admin.php' );
  *
  * @since Vulpix 1.0.0
  */
-function vulpix_theme_setup() {
+function vpx_theme_setup() {
 
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'html5', [ 'style', 'script' ] );
@@ -43,7 +43,7 @@ function vulpix_theme_setup() {
 		]
 	);
 }
-add_action( 'after_setup_theme', 'vulpix_theme_setup' );
+add_action( 'after_setup_theme', 'vpx_theme_setup' );
 
 
 /**
@@ -51,7 +51,7 @@ add_action( 'after_setup_theme', 'vulpix_theme_setup' );
  *
  * @since Vulpix 1.0.0
  */
-function vulpix_remove_default_widgets() {
+function vpx_remove_default_widgets() {
 
 	unregister_widget( 'WP_Widget_Pages' );
 	unregister_widget( 'WP_Widget_Calendar' );
@@ -67,14 +67,14 @@ function vulpix_remove_default_widgets() {
 	unregister_widget( 'WP_Widget_Media_Gallery' );
 	unregister_widget( 'WP_Widget_Custom_HTML' );
 }
-add_action( 'widgets_init', 'vulpix_remove_default_widgets', 11 );
+add_action( 'widgets_init', 'vpx_remove_default_widgets', 11 );
 
 /**
  * Enqueues style and script files.
  *
  * @since Vulpix 1.0.0
  */
-function vulpix_theme_scripts() {
+function vpx_theme_scripts() {
 
 	/* CSS*/
 	wp_enqueue_style( 'reflex', get_theme_file_uri( '/assets/css/reflex.css' ), null, '2.0.4' );
@@ -85,4 +85,4 @@ function vulpix_theme_scripts() {
 	wp_enqueue_script( 'html5shiv', get_theme_file_uri( '/assets/js/html5shiv.js' ), [ 'jquery' ], VULPIX_VERSION, true );
 	wp_enqueue_script( 'vulpix-scripts', get_theme_file_uri( '/assets/js/scripts.js' ), [ 'jquery' ], VULPIX_VERSION, true );
 }
-add_action( 'wp_enqueue_scripts', 'vulpix_theme_scripts' );
+add_action( 'wp_enqueue_scripts', 'vpx_theme_scripts' );

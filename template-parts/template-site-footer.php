@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) or die( 'Vulpix, use Flamethrower!' );
             ?>
         </div>
         <div class="col-md-4 offset-md-4">
-            <?php // Logo ?>
+            <?php vpx_the_logo(); ?>
         </div>
         <div class="col-12">
             <a class="to-the-top" href="#site-header">

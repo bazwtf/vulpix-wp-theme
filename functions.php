@@ -14,6 +14,7 @@ defined( 'ABSPATH' ) or die( 'Vulpix, use Flamethrower!' );
  */
 define( 'VULPIX_VERSION', wp_get_theme( basename( __DIR__ ) )->get( 'Version' ) );
 define( 'VULPIX_ROOT', get_template_directory() );
+define( 'VULPIX_ROOT_URI', get_template_directory_uri() );
 
 /**
  * Required
@@ -22,6 +23,7 @@ define( 'VULPIX_ROOT', get_template_directory() );
  */
 require_once( VULPIX_ROOT . '/inc/template-tags.php' );
 require_once( VULPIX_ROOT . '/inc/shortcodes.php' );
+require_once( VULPIX_ROOT . '/inc/admin.php' );
 
 /**
  * Theme Setup

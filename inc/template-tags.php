@@ -236,3 +236,8 @@ function vpx_the_category( $echo = true ) {
 
     return vpx_return_string_handler( $category, $echo );
 }
+
+function vpx_the_logo( $echo = true ) {
+    echo '';
+    return '';
+}

@@ -237,6 +237,7 @@ function vpx_the_category( $echo = true ) {
     return vpx_return_string_handler( $category, $echo );
 }
 
+// TODO: Write and add logo function
 function vpx_the_logo( $echo = true ) {
     echo '';
     return '';

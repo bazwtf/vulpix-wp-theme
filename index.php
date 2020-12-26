@@ -10,6 +10,7 @@ defined( 'ABSPATH' ) or die( 'Vulpix, use Flamethrower!' );
  */
 
 get_header();
+
 if ( have_posts() ) {
 	while ( have_posts() ) {
 		the_post();

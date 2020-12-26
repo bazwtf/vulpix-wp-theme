@@ -21,7 +21,7 @@ defined( 'ABSPATH' ) or die( 'Vulpix, use Flamethrower!' );
         <div class="col-md-4 offset-md-4">
             <?php vpx_the_logo(); ?>
         </div>
-        <div class="col-12">
+        <div class="col-10 offset-1">
             <a class="to-the-top" href="#site-header">
                 <?php
                 // Print the scroll to top link

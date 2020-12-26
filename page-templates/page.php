@@ -19,6 +19,7 @@ get_header();
 					<?php the_content(); ?>
 				</div>
 			</article>
+            <hr>
 		</div>
 	</div>
 </main>

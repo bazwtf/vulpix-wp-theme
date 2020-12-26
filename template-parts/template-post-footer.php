@@ -7,13 +7,13 @@ defined( 'ABSPATH' ) or die( 'Vulpix, use Flamethrower!' );
  * @since Vulpix 1.0.0
  */
 
-// Get posts
+// Get latest posts and exclude current post
 $latest_posts = new WP_Query(
     [
         'posts_per_page' => 5,
+        'post__not_in'   => [ get_the_ID() ],
     ]
 );
-
 update_post_thumbnail_cache( $latest_posts );
 
 if ( $latest_posts->have_posts() ) {

@@ -21,6 +21,7 @@ define( 'VULPIX_ROOT_URI', get_template_directory_uri() );
  *
  * @since Vulpix 1.0.0
  */
+require_once( VULPIX_ROOT . '/inc/widgets.php' );
 require_once( VULPIX_ROOT . '/inc/template-tags.php' );
 require_once( VULPIX_ROOT . '/inc/shortcodes.php' );
 require_once( VULPIX_ROOT . '/inc/admin.php' );
@@ -103,19 +104,23 @@ add_action( 'widgets_init', 'vpx_register_widgets' );
  */
 function vpx_remove_default_widgets() {
 
-	unregister_widget( 'WP_Widget_Pages' );
-	unregister_widget( 'WP_Widget_Calendar' );
-	unregister_widget( 'WP_Widget_Archives' );
-	unregister_widget( 'WP_Widget_Links' );
+    unregister_widget( 'WP_Nav_Menu_Widget' );
+    unregister_widget( 'WP_Widget_Archives' );
+    unregister_widget( 'WP_Widget_Calendar' );
+    unregister_widget( 'WP_Widget_Categories' );
+    unregister_widget( 'WP_Widget_Custom_HTML' );
+    unregister_widget( 'WP_Widget_Links' );
+    unregister_widget( 'WP_Widget_Media_Audio' );
+    unregister_widget( 'WP_Widget_Media_Image' );
+    unregister_widget( 'WP_Widget_Media_Gallery' );
+    unregister_widget( 'WP_Widget_Media_Video' );
 	unregister_widget( 'WP_Widget_Meta' );
-	unregister_widget( 'WP_Widget_Recent_Comments' );
-	unregister_widget( 'WP_Widget_RSS' );
+    unregister_widget( 'WP_Widget_Pages' );
+    unregister_widget( 'WP_Widget_Recent_Comments' );
+    unregister_widget( 'WP_Widget_Recent_Posts' );
+    unregister_widget( 'WP_Widget_RSS' );
+    unregister_widget( 'WP_Widget_Search' );
 	unregister_widget( 'WP_Widget_Tag_Cloud' );
-	unregister_widget( 'WP_Nav_Menu_Widget' );
-	unregister_widget( 'WP_Widget_Media_Video' );
-	unregister_widget( 'WP_Widget_Media_Audio' );
-	unregister_widget( 'WP_Widget_Media_Gallery' );
-	unregister_widget( 'WP_Widget_Custom_HTML' );
 }
 add_action( 'widgets_init', 'vpx_remove_default_widgets', 11 );
 

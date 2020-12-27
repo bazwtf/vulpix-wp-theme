@@ -37,7 +37,7 @@ class vpx_panel_widget extends WP_Widget {
      * @return void
      */
     public function widget( $args, $instance ) {
-        $title = apply_filters( 'widget_title', $instance['title'] );
+        $title = apply_filters( 'widget_title', $instance['vpx_widget_info_title'] );
 
         echo $args['before_widget'];
         if ( ! empty( $title ) ) {
@@ -45,7 +45,9 @@ class vpx_panel_widget extends WP_Widget {
         }
 
         // Panel Text
+        $text = apply_filters( 'widget_text', $instance['vpx_widget_info_text'] );
 
+        echo $text;
         // Panel Button
         // TODO: Content for widget ouput
         echo __( 'Hello, World!', 'vulpix' );
@@ -61,30 +63,53 @@ class vpx_panel_widget extends WP_Widget {
      * @return string|void
      */
     public function form( $instance ) {
-        if ( isset( $instance[ 'title' ] ) ) {
-            $title = $instance[ 'title' ];
-        }
-        else {
-            $title = __( 'New title', 'vulpix' );
-        }
 
         /**
          * Widget admin form
          */
 
         // Panel Title
+        // Set panel title value
+        if ( isset( $instance[ 'vpx_widget_info_title' ] ) ) {
+            $title = $instance[ 'vpx_widget_info_title' ];
+        }
+        else {
+            $title = __( 'New title', 'vulpix' );
+        }
+
+        // Construct panel title form input
         printf(
             '<p>
                 <label for="%1$s">%2$s</label>
                 <input class="widefat" id="%1$s" name="%3$s" type="text" value="%4$s" />
             </p>',
-            $this->get_field_id( 'title' ),
+            $this->get_field_id( 'vpx_widget_info_title' ),
             __( 'Panel Title: ', 'vulpix' ),
-            $this->get_field_name( 'title' ),
+            $this->get_field_name( 'vpx_widget_info_title' ),
             esc_attr( $title )
         );
 
         // Panel Text
+        // Set panel text value
+        if ( isset( $instance[ 'vpx_widget_info_text' ] ) ) {
+            $text = $instance[ 'vpx_widget_info_text' ];
+        }
+        else {
+            $text = __( 'New paragraph', 'vulpix' );
+        }
+
+        // Construct panel text form input
+        printf(
+            '<p>
+                <label for="%1$s">%2$s</label>
+                <input class="widefat" id="%1$s" name="%3$s" type="text" value="%4$s" />
+            </p>',
+            $this->get_field_id( 'vpx_widget_info_text' ),
+            __( 'Panel Text: ', 'vulpix' ),
+            $this->get_field_name( 'vpx_widget_info_text' ),
+            esc_attr( $text )
+        );
+
 
         // Panel Button
     }
@@ -99,7 +124,8 @@ class vpx_panel_widget extends WP_Widget {
      */
     public function update( $new_instance, $old_instance ) {
         $instance = [];
-        $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+        $instance['vpx_widget_info_title'] = ( ! empty( $new_instance['vpx_widget_info_title'] ) ) ? strip_tags( $new_instance['vpx_widget_info_title'] ) : '';
+        $instance['vpx_widget_info_text'] = ( ! empty( $new_instance['vpx_widget_info_text'] ) ) ? strip_tags( $new_instance['vpx_widget_info_text'] ) : '';
         return $instance;
     }
 }

@@ -9,6 +9,8 @@ defined( 'ABSPATH' ) or die( 'Vulpix, use Flamethrower!' );
 
 /**
  * Class vpx_panel_widget
+ *
+ * @since 1.0.0
  */
 class vpx_panel_widget extends WP_Widget {
 
@@ -23,13 +25,13 @@ class vpx_panel_widget extends WP_Widget {
             'vpx_panel_widget',
             __( 'Info panel', 'vulpix' ),
             [
-                'description' => __( 'Sample widget based on WPBeginner Tutorial', 'vulpix' ),
+                'description' => __( 'Simple panel component for displaying a call to action', 'vulpix' ),
             ]
         );
     }
 
     /**
-     * Widget front-end
+     * vpx_panel_widget front-end
      *
      * @since 1.0.0
      * @param array $args
@@ -56,7 +58,7 @@ class vpx_panel_widget extends WP_Widget {
     }
 
     /**
-     * Widget backend
+     * vpx_panel_widget backend
      *
      * @since 1.0.0
      * @param array $instance
@@ -65,7 +67,7 @@ class vpx_panel_widget extends WP_Widget {
     public function form( $instance ) {
 
         /**
-         * Widget admin form
+         * vpx_panel_widget admin form
          */
 
         /** Panel Title */
@@ -112,10 +114,49 @@ class vpx_panel_widget extends WP_Widget {
 
 
         /** Panel Button */
+        // Set panel button label value
+        if ( isset( $instance[ 'vpx_widget_info_button_label' ] ) ) {
+            $label = $instance[ 'vpx_widget_info_button_label' ];
+        }
+        else {
+            $label = __( 'New button label', 'vulpix' );
+        }
+
+        // Construct panel button label input
+        printf(
+            '<p>
+                <label for="%1$s">%2$s</label>
+                <input class="widefat" id="%1$s" name="%3$s" type="text" value="%4$s" />
+            </p>',
+            $this->get_field_id( 'vpx_widget_info_button_label' ),
+            __( 'Button Label: ', 'vulpix' ),
+            $this->get_field_name( 'vpx_widget_info_button_label' ),
+            esc_attr( $label )
+        );
+
+        // Set panel button URL value
+        if ( isset( $instance[ 'vpx_widget_info_button_url' ] ) ) {
+            $url = $instance[ 'vpx_widget_info_button_url' ];
+        }
+        else {
+            $url = __( 'New button URL', 'vulpix' );
+        }
+
+        // Construct panel button URL input
+        printf(
+            '<p>
+                <label for="%1$s">%2$s</label>
+                <input class="widefat" id="%1$s" name="%3$s" type="text" value="%4$s" />
+            </p>',
+            $this->get_field_id( 'vpx_widget_info_button_url' ),
+            __( 'Button URL: ', 'vulpix' ),
+            $this->get_field_name( 'vpx_widget_info_button_url' ),
+            esc_attr( $url )
+        );
     }
 
     /**
-     * Update widget replacing old instances with new
+     * Update vpx_panel_widget replacing old instances with new
      *
      * @since 1.0.0
      * @param array $new_instance
@@ -126,17 +167,19 @@ class vpx_panel_widget extends WP_Widget {
         $instance = [];
         $instance['vpx_widget_info_title'] = ( ! empty( $new_instance['vpx_widget_info_title'] ) ) ? strip_tags( $new_instance['vpx_widget_info_title'] ) : '';
         $instance['vpx_widget_info_text'] = ( ! empty( $new_instance['vpx_widget_info_text'] ) ) ? strip_tags( $new_instance['vpx_widget_info_text'] ) : '';
+        $instance['vpx_widget_info_button_label'] = ( ! empty( $new_instance['vpx_widget_info_button_label'] ) ) ? strip_tags( $new_instance['vpx_widget_info_button_label'] ) : '';
+        $instance['vpx_widget_info_button_url'] = ( ! empty( $new_instance['vpx_widget_info_button_url'] ) ) ? strip_tags( $new_instance['vpx_widget_info_button_url'] ) : '';
         return $instance;
     }
 }
 
 /**
- * Register and load the widget
+ * Register and load the widgets
  *
  * @since 1.0.0
  * @return void
  */
-function vpx_load_widget() {
+function vpx_load_widgets() {
     register_widget( 'vpx_panel_widget' );
 }
-add_action( 'widgets_init', 'vpx_load_widget' );
+add_action( 'widgets_init', 'vpx_load_widgets' );

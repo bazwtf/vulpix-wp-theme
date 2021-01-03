@@ -237,6 +237,27 @@ function vpx_the_category( $echo = true ) {
     return vpx_return_string_handler( $category, $echo );
 }
 
+/**
+ * Sidebar
+ *
+ * @since 1.0.0
+ * @param $sidebar
+ * @return string|void
+ */
+function vpx_sidebar( $sidebar ) {
+
+    // Check to see if named sidebar is active
+    if ( true === empty( $sidebar ) || false === is_active_sidebar( $sidebar ) ) {
+        return '';
+    }
+    ?>
+    <section class="sidebar">
+        <?php dynamic_sidebar( $sidebar ); ?>
+    </section>
+    <?php
+}
+
+
 // TODO: Write and add logo function
 function vpx_the_logo( $echo = true ) {
     echo '';

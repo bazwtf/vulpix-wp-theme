@@ -138,8 +138,7 @@ function vpx_callback_checkbox( $args ) {
  */
 function vpx_callback_select( $args ) {
 
-
-    /** [If options exist, and options ID/name is set] */
+    // If options exist, and options ID/name is set
     if ( array_key_exists( 'options', $args ) && array_key_exists( 'options_id', $args ) ) {
 
         /** Retrieves old setting */

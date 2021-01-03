@@ -68,7 +68,7 @@ class vpx_panel_widget extends WP_Widget {
          * Widget admin form
          */
 
-        // Panel Title
+        /** Panel Title */
         // Set panel title value
         if ( isset( $instance[ 'vpx_widget_info_title' ] ) ) {
             $title = $instance[ 'vpx_widget_info_title' ];
@@ -89,7 +89,7 @@ class vpx_panel_widget extends WP_Widget {
             esc_attr( $title )
         );
 
-        // Panel Text
+        /** Panel Text */
         // Set panel text value
         if ( isset( $instance[ 'vpx_widget_info_text' ] ) ) {
             $text = $instance[ 'vpx_widget_info_text' ];
@@ -111,7 +111,7 @@ class vpx_panel_widget extends WP_Widget {
         );
 
 
-        // Panel Button
+        /** Panel Button */
     }
 
     /**

@@ -6,8 +6,7 @@ defined( 'ABSPATH' ) or die( 'Vulpix, use Flamethrower!' );
  * @package Vulpix
  * @since Vulpix 1.0.0
  */
-// TODO: Handler for using ACF
-if ( true === is_plugin_active( 'acf' ) ) {
 
-    return '';
-}
+vpx_sidebar( 'sidebar-footer-left' );
+vpx_sidebar( 'sidebar-footer-centre' );
+vpx_sidebar( 'sidebar-footer-right' );

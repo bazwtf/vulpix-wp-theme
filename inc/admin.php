@@ -29,7 +29,6 @@ function vpx_theme_options_page() {
             ?>
         </form>
     </div>
-
     <?php
 }
 
@@ -141,22 +140,29 @@ function vpx_callback_select( $args ) {
     // If options exist, and options ID/name is set
     if ( array_key_exists( 'options', $args ) && array_key_exists( 'options_id', $args ) ) {
 
-        /** Retrieves old setting */
+        // Retrieves old setting
         $option_prev = get_option( $args['options_id'] );
 
-        /** Build <select> tag */
-        echo '<select id="' . esc_attr( $args['options_id'] ) . '" name="' . esc_attr( $args['options_id'] ) . '">';
+        $options = '';
 
-        /** Loop through Options array */
+        // Loop through Options array
         foreach ( $args['options'] as $key => $val ) {
 
-            printf(
+            $options .= sprintf(
                 '<option value="%1$s" %2$s>%3$s</option>',
                 esc_attr( $key ),
                 selected( $key, $option_prev, false ),
                 esc_html( $val )
             );
         }
-        echo '</select>';
+
+        // Build <select> tag
+        $select = sprintf(
+            '<select id="%1$s" name="%1$s">%2$s</select>',
+            esc_attr( $args['options_id'] ),
+            $options
+        );
+
+        echo $select;
     }
 }

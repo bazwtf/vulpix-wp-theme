@@ -35,7 +35,7 @@ require_once( VULPIX_ROOT . '/inc/admin.php' );
 function vpx_theme_setup() {
 
 	add_theme_support( 'post-thumbnails' );
-	add_theme_support( 'html5', [ 'style', 'script' ] );
+	add_theme_support( 'html5', [ 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption', 'style', 'script' ] );
 
 	register_nav_menus(
 		[

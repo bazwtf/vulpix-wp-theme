@@ -58,39 +58,39 @@ function vpx_register_widgets() {
     // Register sidebar for left footer
     register_sidebar(
         [
-            'name'          => __( 'Left Panel', 'vulpix' ),
-            'id'            => 'sidebar-footer-left',
-            'description'   => __( 'Widgets in this area will be shown on all posts and pages.', 'vulpix' ),
-            'before_widget' => '<li id="%1$s" class="widget %2$s">',
-            'after_widget'  => '</li>',
-            'before_title'  => '<h2 class="widget--title">',
-            'after_title'   => '</h2>',
+            'name'           => __( 'Left Panel', 'vulpix' ),
+            'id'             => 'sidebar-footer-left',
+            'description'    => __( 'Widgets in this area will be shown on all posts and pages.', 'vulpix' ),
+            'before_widget'  => '<li id="%1$s" class="widget %2$s">',
+            'after_widget'   => '</li>',
+            'before_title'   => '<h2 class="widget--title">',
+            'after_title'    => '</h2>',
         ]
     );
 
     // Register sidebar for center footer
     register_sidebar(
         [
-            'name'          => __( 'Centre Panel', 'vulpix' ),
-            'id'            => 'sidebar-footer-center',
-            'description'   => __( 'Widgets in this area will be shown on all posts and pages.', 'vulpix' ),
-            'before_widget' => '<li id="%1$s" class="widget %2$s">',
-            'after_widget'  => '</li>',
-            'before_title'  => '<h2 class="widget--title">',
-            'after_title'   => '</h2>',
+            'name'           => __( 'Centre Panel', 'vulpix' ),
+            'id'             => 'sidebar-footer-centre',
+            'description'    => __( 'Widgets in this area will be shown on all posts and pages.', 'vulpix' ),
+            'before_widget'  => '<li id="%1$s" class="widget %2$s">',
+            'after_widget'   => '</li>',
+            'before_title'   => '<h2 class="widget--title">',
+            'after_title'    => '</h2>',
         ]
     );
 
     // Register sidebar for right footer
     register_sidebar(
         [
-            'name'          => __( 'Right Panel', 'vulpix' ),
-            'id'            => 'sidebar-footer-right',
-            'description'   => __( 'Widgets in this area will be shown on all posts and pages.', 'vulpix' ),
-            'before_widget' => '<li id="%1$s" class="widget %2$s">',
-            'after_widget'  => '</li>',
-            'before_title'  => '<h2 class="widget--title">',
-            'after_title'   => '</h2>',
+            'name'           => __( 'Right Panel', 'vulpix' ),
+            'id'             => 'sidebar-footer-right',
+            'description'    => __( 'Widgets in this area will be shown on all posts and pages.', 'vulpix' ),
+            'before_widget'  => '<li id="%1$s" class="widget %2$s">',
+            'after_widget'   => '</li>',
+            'before_title'   => '<h2 class="widget--title">',
+            'after_title'    => '</h2>',
         ]
     );
 }

@@ -6,3 +6,15 @@ defined( 'ABSPATH' ) or die( 'Vulpix, use Flamethrower!' );
  * @package Vulpix
  * @since Vulpix 1.0.0
  */
+
+
+// TODO: Write and a basket function for WooCommerece
+function vpx_the_basket() {
+
+    // Check to see if WooCommerce is active
+    if ( ! is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
+        return '';
+    }
+
+    return '';
+}

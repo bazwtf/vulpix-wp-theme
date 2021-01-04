@@ -8,8 +8,5 @@ defined( 'ABSPATH' ) or die( 'Vulpix, use Flamethrower!' );
  * @since Vulpix 1.0.0
  */
 
-// Get panels template
-get_template_part( 'template-parts/template', 'panels' );
-
 // Get primary site footer template
 get_template_part( 'template-parts/template', 'site-footer' );

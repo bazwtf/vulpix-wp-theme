@@ -35,3 +35,6 @@ if ( $latest_posts->have_posts() ) {
     </section>
     <?php
 }
+
+// Get panels template
+get_template_part( 'template-parts/template', 'panels' );

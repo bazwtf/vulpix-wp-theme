@@ -242,24 +242,24 @@ function vpx_the_category( $echo = true ) {
  *
  * @since 1.0.0
  * @param $sidebar
+ * @param $class
  * @return string|void
  */
-function vpx_sidebar( $sidebar ) {
+function vpx_sidebar( $sidebar, $class = '' ) {
 
     // Check to see if named sidebar is active
     if ( true === empty( $sidebar ) || false === is_active_sidebar( $sidebar ) ) {
         return '';
     }
     ?>
-    <section class="sidebar">
+    <section class="sidebar <?php echo ( ! $class ? '' : ' ' . esc_attr( $class ) ); ?>">
         <?php dynamic_sidebar( $sidebar ); ?>
     </section>
     <?php
 }
 
-
 // TODO: Write and add logo function
 function vpx_the_logo( $echo = true ) {
-    echo '';
+    echo 'Logo';
     return '';
 }

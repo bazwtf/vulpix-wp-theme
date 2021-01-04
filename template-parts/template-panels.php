@@ -7,6 +7,6 @@ defined( 'ABSPATH' ) or die( 'Vulpix, use Flamethrower!' );
  * @since Vulpix 1.0.0
  */
 
-vpx_sidebar( 'sidebar-footer-left' );
-vpx_sidebar( 'sidebar-footer-centre' );
-vpx_sidebar( 'sidebar-footer-right' );
+vpx_sidebar( 'sidebar-footer-left', 'col-sm-4' );
+vpx_sidebar( 'sidebar-footer-centre', 'col-sm-4' );
+vpx_sidebar( 'sidebar-footer-right', 'col-sm-4' );

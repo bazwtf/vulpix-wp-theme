@@ -31,7 +31,7 @@ function vpx_shortcode_button( $atts ) {
     );
 
     // If no is passed through or if the URL is invalid then return empty
-    if ( ! $atts['url'] || false === filter_var( $atts['url'], FILTER_VALIDATE_URL ) ) {
+    if ( false === filter_var( $atts['url'], FILTER_VALIDATE_URL ) ) {
         return '';
     }
 
@@ -42,7 +42,7 @@ function vpx_shortcode_button( $atts ) {
         </div>',
         ( ! $atts['class'] ? 'btn' : 'btn ' . esc_attr ( $atts['class'] ) ),
         esc_url( $atts['url'] ),
-        esc_html( __( $attr['text'], 'vulpix' ) )
+        esc_html( __( $atts['text'], 'vulpix' ) )
     );
 
     return vpx_return_string_handler( $button, $atts['echo'] );

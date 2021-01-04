@@ -57,7 +57,7 @@ class vpx_panel_widget extends WP_Widget {
 
         // Panel Button
         $button_label = __( $instance['vpx_widget_info_button_label'], 'vulpix' );
-        if ( ! $button_label || false === filter_var( $instance['vpx_widget_info_button_url'], FILTER_VALIDATE_URL ) ) {
+        if ( $button_label && false !== filter_var( $instance['vpx_widget_info_button_url'], FILTER_VALIDATE_URL ) ) {
             $button = do_shortcode( '[button text="' . esc_attr( $button_label ) . '" url="' . esc_url( $instance['vpx_widget_info_button_url'] ) . '"]' );
             echo $button;
         }

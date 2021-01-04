@@ -39,20 +39,28 @@ class vpx_panel_widget extends WP_Widget {
      * @return void
      */
     public function widget( $args, $instance ) {
-        $title = apply_filters( 'widget_title', $instance['vpx_widget_info_title'] );
 
         echo $args['before_widget'];
+
+        // Panel Title
+        $title = __( $instance['vpx_widget_info_title'], 'vulpix' );
         if ( ! empty( $title ) ) {
             echo $args['before_title'] . $title . $args['after_title'];
         }
 
         // Panel Text
-        $text = apply_filters( 'widget_text', $instance['vpx_widget_info_text'] );
+        $text = __( $instance['vpx_widget_info_text'], 'vulpix' );
+        if ( ! empty( $text ) ) {
+            $text = sprintf('<p class="widget--text panel--text">%s</p>', esc_html( $text ) );
+            echo $text;
+        }
 
-        echo $text;
         // Panel Button
-        // TODO: Content for widget ouput
-        echo __( 'Hello, World!', 'vulpix' );
+        $button_label = __( $instance['vpx_widget_info_button_label'], 'vulpix' );
+        if ( ! $button_label || false === filter_var( $instance['vpx_widget_info_button_url'], FILTER_VALIDATE_URL ) ) {
+            $button = do_shortcode( '[button text="' . esc_attr( $button_label ) . '" url="' . esc_url( $instance['vpx_widget_info_button_url'] ) . '"]' );
+            echo $button;
+        }
 
         echo $args['after_widget'];
     }
@@ -139,14 +147,14 @@ class vpx_panel_widget extends WP_Widget {
             $url = $instance[ 'vpx_widget_info_button_url' ];
         }
         else {
-            $url = __( 'New button URL', 'vulpix' );
+            $url = 'https://privacytools.io';
         }
 
         // Construct panel button URL input
         printf(
             '<p>
                 <label for="%1$s">%2$s</label>
-                <input class="widefat" id="%1$s" name="%3$s" type="text" value="%4$s" />
+                <input class="widefat" id="%1$s" name="%3$s" type="url" value="%4$s" />
             </p>',
             $this->get_field_id( 'vpx_widget_info_button_url' ),
             __( 'Button URL: ', 'vulpix' ),

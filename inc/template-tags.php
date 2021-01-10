@@ -262,9 +262,9 @@ function vpx_sidebar( $sidebar, $class = '' ) {
  * Menu
  *
  * @since 1.0.0
- * @param string $location
- * @param bool $is_main
- * @param bool $echo
+ * @param string $location Name of menu location
+ * @param bool $is_main is this the main navigation
+ * @param bool $echo default true
  * @return string
  */
 function vpx_the_menu( $location, $is_main = false, $echo = true ) {
@@ -279,7 +279,7 @@ function vpx_the_menu( $location, $is_main = false, $echo = true ) {
     if ( true === $is_main ) {
         // Menu button
         $button = sprintf(
-            '<button aria-expanded="false" aria-controls="%1$s">
+            '<button class="nav-menu--button" aria-expanded="false" aria-controls="%1$s">
                 Menu
             </button>',
             esc_attr( $location )
@@ -291,18 +291,18 @@ function vpx_the_menu( $location, $is_main = false, $echo = true ) {
         [
             'echo'           => false,
             'theme_location' => $location,
-            'menu_class'     => 'nav-' . $location,
+            'menu_class'     => '--hide nav-menu nav-menu--' . $location,
             'container'      => false,
         ]
     );
 
     // Construct full menu
     $menu = sprintf(
-        '<nav>
+        '<nav class="nav">
             %1$s
             %2$s
         </nav>',
-        ( true === $button ? $button : '' ),
+        ( $button ? $button : '' ),
         wp_kses_post( $nav )
     );
 

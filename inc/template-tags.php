@@ -258,23 +258,55 @@ function vpx_sidebar( $sidebar, $class = '' ) {
     <?php
 }
 
-function vpx_the_menu( $location, $echo = true ) {
+/**
+ * Menu
+ *
+ * @since 1.0.0
+ * @param string $location
+ * @param bool $is_main
+ * @param bool $echo
+ * @return string
+ */
+function vpx_the_menu( $location, $is_main = false, $echo = true ) {
 
     // Check for menu location and if it exists else return empty
     if ( ! $location || ! has_nav_menu( $location ) ) {
         return '';
     }
 
-    // Menu button
-    $button = sprintf(
-        '<button aria-expanded="false" aria-controls="%1$s">
-			Menu
-		</button>',
-        esc_attr( $location )
+    $button = '';
+
+    if ( true === $is_main ) {
+        // Menu button
+        $button = sprintf(
+            '<button aria-expanded="false" aria-controls="%1$s">
+                Menu
+            </button>',
+            esc_attr( $location )
+        );
+    }
+
+    // Construct nav menu
+    $nav = wp_nav_menu(
+        [
+            'echo'           => false,
+            'theme_location' => $location,
+            'menu_class'     => 'nav-' . $location,
+            'container'      => false,
+        ]
     );
 
-    echo $button;
-    return '';
+    // Construct full menu
+    $menu = sprintf(
+        '<nav>
+            %1$s
+            %2$s
+        </nav>',
+        ( true === $button ? $button : '' ),
+        wp_kses_post( $nav )
+    );
+
+    return vpx_return_string_handler( $menu, $echo );
 }
 
 // TODO: Write and add logo function

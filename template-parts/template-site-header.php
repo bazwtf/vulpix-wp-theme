@@ -11,6 +11,6 @@ defined( 'ABSPATH' ) or die( 'Vulpix, use Flamethrower!' );
     <div class="grid">
         <div class="col-md-3 col-sm-6"><?php vpx_the_logo(); ?></div>
         <div class="col-sm-3 offset-md-3"><?php vpx_the_basket(); ?></div>
-        <div class="col-sm-3"><?php vpx_the_menu( 'main_menu' ); ?></div>
+        <div class="col-sm-3"><?php vpx_the_menu( 'main_menu', true ); ?></div>
     </div>
 </header>

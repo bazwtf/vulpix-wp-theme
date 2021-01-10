@@ -10,7 +10,7 @@ defined( 'ABSPATH' ) or die( 'Vulpix, use Flamethrower!' );
 <header id="site-header" role="banner" class="container">
     <div class="grid">
         <div class="col-md-3 col-sm-6"><?php vpx_the_logo(); ?></div>
-        <div class="col-md-3 col-sm-3 offset-md-3"><?php vpx_the_basket(); ?></div>
-        <div class="col-md-3 col-sm-3">Menu</div>
+        <div class="col-sm-3 offset-md-3"><?php vpx_the_basket(); ?></div>
+        <div class="col-sm-3"><?php vpx_the_menu( 'main_menu' ); ?></div>
     </div>
 </header>

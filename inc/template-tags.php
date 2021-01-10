@@ -241,8 +241,8 @@ function vpx_the_category( $echo = true ) {
  * Sidebar
  *
  * @since 1.0.0
- * @param $sidebar
- * @param $class
+ * @param string $sidebar Sidebar location
+ * @param string $class CSS Classes that can be passed in to add to sidebar wrapper
  * @return string|void
  */
 function vpx_sidebar( $sidebar, $class = '' ) {
@@ -256,6 +256,25 @@ function vpx_sidebar( $sidebar, $class = '' ) {
         <?php dynamic_sidebar( $sidebar ); ?>
     </section>
     <?php
+}
+
+function vpx_the_menu( $location, $echo = true ) {
+
+    // Check for menu location and if it exists else return empty
+    if ( ! $location || ! has_nav_menu( $location ) ) {
+        return '';
+    }
+
+    // Menu button
+    $button = sprintf(
+        '<button aria-expanded="false" aria-controls="%1$s">
+			Menu
+		</button>',
+        esc_attr( $location )
+    );
+
+    echo $button;
+    return '';
 }
 
 // TODO: Write and add logo function

@@ -21,10 +21,11 @@ define( 'VULPIX_ROOT_URI', get_template_directory_uri() );
  *
  * @since Vulpix 1.0.0
  */
-require_once( VULPIX_ROOT . '/inc/widgets.php' );
-require_once( VULPIX_ROOT . '/inc/template-tags.php' );
-require_once( VULPIX_ROOT . '/inc/shortcodes.php' );
 require_once( VULPIX_ROOT . '/inc/admin.php' );
+require_once( VULPIX_ROOT . '/inc/plugins.php' );
+require_once( VULPIX_ROOT . '/inc/shortcodes.php' );
+require_once( VULPIX_ROOT . '/inc/template-tags.php' );
+require_once( VULPIX_ROOT . '/inc/widgets.php' );
 
 /**
  * Theme Setup

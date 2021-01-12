@@ -11,21 +11,21 @@ get_header();
 ?>
 <main role="main" class="container">
     <div class="grid">
-        <article>
+        <article <?php echo post_class(); ?>>
             <?php
             while ( have_posts() ) {
                 the_post();
                 get_template_part( 'template-parts/template', 'post-header' );
                 ?>
-                <div class="col-10 offset-1">
+                <div class="col-sm-10 offset-1 col-md-8 offset-md-2">
                     <?php the_content(); ?>
                 </div>
                 <?php
             }
             ?>
         </article>
-        <?php get_template_part( 'template-parts/template', 'post-footer' ); ?>
 	</div>
+    <?php get_template_part( 'template-parts/template', 'post-footer' ); ?>
 </main>
 <?php
 get_footer();

@@ -8,5 +8,5 @@ defined( 'ABSPATH' ) or die( 'Vulpix, use Flamethrower!' );
  */
 
 vpx_sidebar( 'sidebar-footer-left', 'col-sm-4' );
-vpx_sidebar( 'sidebar-footer-centre', 'col-sm-4' );
+vpx_sidebar( 'sidebar-footer-center', 'col-sm-4' );
 vpx_sidebar( 'sidebar-footer-right', 'col-sm-4' );

@@ -72,8 +72,8 @@ function vpx_register_widgets() {
     // Register sidebar for center footer
     register_sidebar(
         [
-            'name'           => __( 'Centre Panel', 'vulpix' ),
-            'id'             => 'sidebar-footer-centre',
+            'name'           => __( 'center Panel', 'vulpix' ),
+            'id'             => 'sidebar-footer-center',
             'description'    => __( 'Widgets in this area will be shown on all posts and pages.', 'vulpix' ),
             'before_widget'  => '<li id="%1$s" class="widget %2$s">',
             'after_widget'   => '</li>',

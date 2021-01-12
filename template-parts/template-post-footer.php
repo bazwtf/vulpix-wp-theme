@@ -18,10 +18,10 @@ update_post_thumbnail_cache( $latest_posts );
 
 if ( $latest_posts->have_posts() ) {
     ?>
-    <section class="col-12">
+    <section class="grid direction-column">
         <?php
         // Section title
-        printf( '<h2 class="section-title">%s</h2>', __(  'Latest posts', 'vulpix' ) );
+        printf( '<h2 class="section-title col-12 --center">%s</h2>', __(  'Latest posts', 'vulpix' ) );
 
         while ( $latest_posts->have_posts() ) {
             $latest_posts->the_post();

@@ -23,6 +23,7 @@ get_header();
 				</div>
 			</section>
 		</div>
+        <?php get_template_part( 'template-parts/template', 'page-footer' ); ?>
 	</div>
 </main>
 <?php

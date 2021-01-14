@@ -25,6 +25,7 @@ get_header();
         }
         ?>
     </div>
+    <?php get_template_part( 'template-parts/template', 'archive-footer' ); ?>
 </main>
 <?php
 get_footer();

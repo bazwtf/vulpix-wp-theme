@@ -15,7 +15,7 @@ get_header();
 		<div class="grid">
 			<article class="col-10 offset-1">
 				<div class="entry-content">
-					<?php printf( '<h1 class="page-title">%s</h1>', __( get_the_title(), 'vulpix' ) ); ?>
+					<?php printf( '<h1 class="page-title --center">%s</h1>', __( get_the_title(), 'vulpix' ) ); ?>
 					<?php the_content(); ?>
 				</div>
 			</article>

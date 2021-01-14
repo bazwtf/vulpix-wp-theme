@@ -13,7 +13,7 @@ get_header();
     <div class="grid">
         <?php
         // Archive title
-        printf( __( '<h1 class="col-12">%s</h1>', 'vulpix' ), single_cat_title( '', false ) );
+        printf( __( '<h1 class="col-12 --center">%s</h1>', 'vulpix' ), single_cat_title( '', false ) );
 
         if ( have_posts() ) {
             while ( have_posts() ) {

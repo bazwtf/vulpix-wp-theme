@@ -47,7 +47,10 @@ get_header();
                     get_template_part( 'template-parts/template', 'post-list' );
                 }
             }
-            // TODO: Pagination
+
+            // Get pagination
+            vpx_the_posts_navigation();
+
             // TODO: IF no results?
             ?>
         </div>

@@ -309,6 +309,45 @@ function vpx_the_menu( $location, $is_main = false, $echo = true ) {
     return vpx_return_string_handler( $menu, $echo );
 }
 
+/**
+ * Posts pagination
+ *
+ * @since 1.0.0
+ * @return void
+ */
+function vpx_the_posts_navigation() {
+    the_posts_pagination(
+        [
+            'before_page_number' => esc_html__( 'Page', 'vulpix' ) . ' ',
+            'mid_size'           => 0,
+            'prev_text'          => sprintf(
+                '%s <span class="nav-prev-text">%s</span>',
+                is_rtl() ? '>>' : '<<',
+                wp_kses(
+                    __( 'Newer <span class="nav-short">posts</span>', 'vulpix' ),
+                    [
+                        'span' => [
+                            'class' => [],
+                        ],
+                    ]
+                )
+            ),
+            'next_text'          => sprintf(
+                '<span class="nav-next-text">%s</span> %s',
+                wp_kses(
+                    __( 'Older <span class="nav-short">posts</span>', 'vulpix' ),
+                    [
+                        'span' => [
+                            'class' => [],
+                        ],
+                    ]
+                ),
+                is_rtl() ? '<<' : '>>'
+            ),
+        ]
+    );
+}
+
 // TODO: Write and add logo function
 function vpx_the_logo( $echo = true ) {
     echo 'Logo';

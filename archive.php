@@ -23,6 +23,9 @@ get_header();
                 get_template_part( 'template-parts/template', 'post-list' );
             }
         }
+
+        // Get pagination
+        vpx_the_posts_navigation();
         ?>
     </div>
     <?php get_template_part( 'template-parts/template', 'archive-footer' ); ?>

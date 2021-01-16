@@ -324,7 +324,7 @@ if ( ! function_exists( 'vpx_the_menu' ) ) {
                 %2$s
             </nav>',
             ( $button ? $button : '' ),
-            wp_kses_post( $nav )
+            wp_kses_post( $nav ) // TODO: refactor to `wp_kses()`
         );
 
         return vpx_return_string_handler( $menu, $echo );

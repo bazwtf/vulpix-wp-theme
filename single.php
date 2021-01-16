@@ -15,7 +15,7 @@ get_header();
             <?php
             while ( have_posts() ) {
                 the_post();
-                get_template_part( 'template-parts/template', 'post-header' );
+                get_template_part( 'template-parts/content/template', 'post-header' );
                 ?>
                 <div class="col-sm-10 offset-1 col-md-8 offset-md-2">
                     <?php the_content(); ?>
@@ -25,7 +25,7 @@ get_header();
             ?>
         </article>
 	</div>
-    <?php get_template_part( 'template-parts/template', 'post-footer' ); ?>
+    <?php get_template_part( 'template-parts/content/template', 'post-footer' ); ?>
 </main>
 <?php
 get_footer();

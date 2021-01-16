@@ -22,12 +22,16 @@ get_header();
                     the_post();
 
                     // Get post list template
-                    get_template_part( 'template-parts/template', 'post-list' );
+                    get_template_part( 'template-parts/content/template', 'post-list' );
                 }
+            } else {
+
+                // If no content
+                get_template_part( 'template-parts/content/template', 'none' );
             }
             ?>
         </div>
-        <?php get_template_part( 'template-parts/template', 'archive-footer' ); ?>
+        <?php get_template_part( 'template-parts/archive/template', 'archive-footer' ); ?>
     </main>
 <?php
 get_footer();

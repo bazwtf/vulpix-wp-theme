@@ -27,7 +27,7 @@ if ( $latest_posts->have_posts() ) {
             $latest_posts->the_post();
 
             // Get post list template
-            get_template_part( 'template-parts/template', 'post-list' );
+            get_template_part( 'template-parts/content/template', 'post-list' );
         }
         wp_reset_postdata();
         ?>

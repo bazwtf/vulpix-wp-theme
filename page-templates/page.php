@@ -21,7 +21,7 @@ get_header();
 			</article>
             <hr>
 		</div>
-        <?php get_template_part( 'template-parts/template', 'page-footer' ); ?>
+        <?php get_template_part( 'template-parts/page/template', 'page-footer' ); ?>
 	</div>
 </main>
 <?php

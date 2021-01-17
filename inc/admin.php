@@ -12,6 +12,7 @@ defined( 'ABSPATH' ) or die( 'Vulpix, use Flamethrower!' );
 /**
  * Sets up the theme options page.
  *
+ * @since 1.0.0
  * @return void
  */
 function vpx_theme_options_page() {
@@ -35,6 +36,7 @@ function vpx_theme_options_page() {
 /**
  * Adds the theme options page to the WP admin sidebar.
  *
+ * @since 1.0.0
  * @return void
  */
 function vpx_add_theme_options() {
@@ -56,6 +58,7 @@ add_action( 'admin_menu', 'vpx_add_theme_options' );
 /**
  * Registers the theme options.
  *
+ * @since 1.0.0
  * @return void
  */
 function vpx_admin_option_section() {
@@ -90,6 +93,7 @@ function vpx_admin_option_section() {
 /**
  * Displays a text field in the theme options form.
  *
+ * @since 1.0.0
  * @param array $args The text field ID.
  * @return void
  */
@@ -104,6 +108,7 @@ function vpx_callback_textbox( $args ) {
 /**
  * Displays a number input field in the theme options form.
  *
+ * @since 1.0.0
  * @param array $args The number field ID.
  * @return void
  */
@@ -118,6 +123,7 @@ function vpx_callback_number( $args ) {
 /**
  * Displays a checkbox field in the theme options form.
  *
+ * @since 1.0.0
  * @param array $args The checkbox field ID.
  * @return void
  */
@@ -132,6 +138,7 @@ function vpx_callback_checkbox( $args ) {
 /**
  * Displays a select field in the theme options form, with Prebid option handling.
  *
+ * @since 1.0.0
  * @param array $args The select field options, and options ID.
  * @return void
  */

@@ -7,8 +7,6 @@ defined( 'ABSPATH' ) or die( 'Vulpix, use Flamethrower!' );
  * @since Vulpix 1.0.0
  */
 
-// TODO: Add method for adding images to WP_Options
-
 /**
  * Sets up the theme options page.
  *
@@ -173,3 +171,6 @@ function vpx_callback_select( $args ) {
         echo $select;
     }
 }
+
+
+// TODO: Add method for adding images to WP_Options

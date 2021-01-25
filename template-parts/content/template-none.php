@@ -6,9 +6,7 @@ defined( 'ABSPATH' ) or die( 'Vulpix, use Flamethrower!' );
  * @package Vulpix
  * @since Vulpix 1.0.0
  */
-
 ?>
-
 <section class="no-results not-found">
     <header class="page-header">
         <h2 class="page-title"><?php _e( 'Nothing Found', 'vulpix' ); ?></h2>

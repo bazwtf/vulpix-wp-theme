@@ -11,27 +11,29 @@ defined( 'ABSPATH' ) or die();
 // TODO: Implement bespoke home page with options
 get_header();
 ?>
-    <main role="main" class="container">
-        <div class="grid">
-            <?php
-            // Archive title
-            printf( __( '<h1 class="col-12 --center">%s</h1>', 'vulpix' ), single_cat_title( '', false ) );
+<main role="main" class="container">
+	<div class="grid">
+		<?php
+		// Archive title
+		printf( __( '<h1 class="col-12 --center">%s</h1>', 'vulpix' ), get_bloginfo( 'name' ) );
 
-            if ( have_posts() ) {
-                while ( have_posts() ) {
-                    the_post();
+		get_template_part( 'template-part/blocks/block', 'hero' );
 
-                    // Get post list template
-                    get_template_part( 'template-parts/content/template', 'post-list' );
-                }
-            } else {
+		if ( have_posts() ) {
+			while ( have_posts() ) {
+				the_post();
 
-                // If no content
-                get_template_part( 'template-parts/content/template', 'none' );
+                // Get post list template
+				get_template_part( 'template-parts/content/template', 'post-list' );
             }
-            ?>
-        </div>
-        <?php get_template_part( 'template-parts/archive/template', 'archive-footer' ); ?>
-    </main>
+        } else {
+
+            // If no content
+            get_template_part( 'template-parts/content/template', 'none' );
+        }
+        ?>
+    </div>
+    <?php get_template_part( 'template-parts/archive/template', 'archive-footer' ); ?>
+</main>
 <?php
 get_footer();

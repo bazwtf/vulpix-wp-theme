@@ -6,8 +6,8 @@ defined( 'ABSPATH' ) or die( 'Vulpix, use Flamethrower!' );
  * @package Vulpix
  * @since Vulpix 1.0.0
  */
-
+echo 'hello';
 // Check to see if ACF is active
-if ( ! is_plugin_active( 'advanced-custom-fields/acf.php' ) ) {
-    return '';
+if ( ! vpx_is_plugin_active( 'advanced-custom-fields/acf.php' ) ) {
+    return vpx_admin_msg( 'Plugin: "Advanced Custom Fields" is not active', 'warning' );
 }

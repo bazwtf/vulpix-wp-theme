@@ -32,6 +32,7 @@ require_once( VULPIX_INC . 'widgets.php' );
  * Theme Setup
  *
  * @since Vulpix 1.0.0
+ *
  * @return void
  */
 function vpx_theme_setup() {
@@ -53,6 +54,7 @@ add_action( 'after_setup_theme', 'vpx_theme_setup' );
  * Register sidebars for theme
  *
  * @since Vulpix 1.0.0
+ *
  * @return void
  */
 function vpx_register_widgets() {
@@ -102,6 +104,7 @@ add_action( 'widgets_init', 'vpx_register_widgets' );
  * Remove default widgets from WP.
  *
  * @since Vulpix 1.0.0
+ *
  * @return void
  */
 function vpx_remove_default_widgets() {
@@ -130,6 +133,7 @@ add_action( 'widgets_init', 'vpx_remove_default_widgets', 11 );
  * Enqueues style and script files.
  *
  * @since Vulpix 1.0.0
+ *
  * @return void
  */
 function vpx_theme_scripts() {

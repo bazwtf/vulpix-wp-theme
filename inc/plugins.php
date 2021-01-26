@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) or die( 'Vulpix, use Flamethrower!' );
 function vpx_the_basket() {
 
     // Check to see if WooCommerce is active
-    if ( ! is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
+    if ( ! vpx_is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
         return '';
     }
 

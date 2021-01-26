@@ -372,6 +372,59 @@ if ( ! function_exists( 'vpx_the_posts_navigation' ) ) {
     }
 }
 
+if ( ! function_exists( 'vpx_is_plugin_active' ) ) {
+
+	/**
+	 * Check for active plugin
+	 *
+	 * @param string $plugin expects `plugin_dir/plugin.php`
+	 *
+	 * @return bool
+	 * @since 1.0.0
+	 *
+	 */
+	function vpx_is_plugin_active( $plugin = '' ) {
+
+		// Check to see if a plugin has been provided as a parameter
+		if ( empty( $plugin ) ) {
+			return false;
+		}
+
+		// If function is not being called in admin area, include `plugin.php`
+		if ( ! is_admin() ) {
+			include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+		}
+
+		// Check whether $plugin is active
+		if ( is_plugin_active( $plugin ) ) {
+			return true;
+		}
+
+		return false;
+	}
+}
+
+// TODO: Admin message
+function vpx_admin_msg( $error = 'warning', $echo = true ) {
+
+	// 4 notice
+    // 3 warning
+    // 2 error
+    // 1 critical
+	if ( ! current_user_can( 'activate_plugins' ) ) {
+	    return '';
+    }
+
+	$message = sprintf(
+        '<div class="error notice">
+            <p>⚠️ <strong>%s</strong> This requires your immediate attention </p>
+        </div>',
+        $error
+    );
+
+	return vpx_return_string_handler( $message, $echo);
+}
+
 if ( ! function_exists( 'vpx_the_logo' ) ) {
     // TODO: Write and add logo function
     function vpx_the_logo($echo = true) {

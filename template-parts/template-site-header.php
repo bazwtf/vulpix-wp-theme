@@ -6,6 +6,7 @@ defined( 'ABSPATH' ) or die( 'Vulpix, use Flamethrower!' );
  * @package Vulpix
  * @since Vulpix 1.0.0
  */
+
 ?>
 <header id="site-header" role="banner" class="container">
     <div class="grid">

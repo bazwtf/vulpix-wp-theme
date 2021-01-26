@@ -16,5 +16,6 @@ defined( 'ABSPATH' ) or die( 'Vulpix, use Flamethrower!' );
 <body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">
 <?php
 do_action( 'body_open' );
+
 // Get primary site header template
 get_template_part( 'template-parts/template', 'site-header' ); ?>

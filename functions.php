@@ -15,17 +15,18 @@ defined( 'ABSPATH' ) or die( 'Vulpix, use Flamethrower!' );
 define( 'VULPIX_VERSION', wp_get_theme( basename( __DIR__ ) )->get( 'Version' ) );
 define( 'VULPIX_ROOT', get_template_directory() );
 define( 'VULPIX_ROOT_URI', get_template_directory_uri() );
+define( 'VULPIX_INC', VULPIX_ROOT . '/inc/' );
 
 /**
  * Required
  *
  * @since Vulpix 1.0.0
  */
-require_once( VULPIX_ROOT . '/inc/admin.php' );
-require_once( VULPIX_ROOT . '/inc/plugins.php' );
-require_once( VULPIX_ROOT . '/inc/shortcodes.php' );
-require_once( VULPIX_ROOT . '/inc/template-tags.php' );
-require_once( VULPIX_ROOT . '/inc/widgets.php' );
+require_once( VULPIX_INC . 'admin.php' );
+require_once( VULPIX_INC . 'plugins.php' );
+require_once( VULPIX_INC . 'shortcodes.php' );
+require_once( VULPIX_INC . 'template-tags.php' );
+require_once( VULPIX_INC . 'widgets.php' );
 
 /**
  * Theme Setup

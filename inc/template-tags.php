@@ -12,7 +12,9 @@ if ( ! function_exists( 'vpx_the_post_meta' ) ) {
      * The post meta data
      *
      * @since Vulpix 1.0.0
+     *
      * @param boolean $echo default true
+     *
      * @return string empty or post meta contents
      */
     function vpx_the_post_meta( $echo = true ) {
@@ -36,8 +38,10 @@ if ( ! function_exists( 'vpx_the_post_thumbnail' ) ) {
      * The post thumbnail
      *
      * @since Vulpix 1.0.0
+     *
      * @param string $size thumbnail size
      * @param boolean $echo default true
+     *
      * @return string empty or post thumbnail contents
      */
     function vpx_the_post_thumbnail( $size = 'thumbnail', $echo = true ) {
@@ -65,8 +69,10 @@ if ( ! function_exists( 'vpx_the_post_thumbnail_title' ) ) {
      * The post thumbnail title
      *
      * @since Vulpix 1.0.0
+     *
      * @param string $heading_size heading size
      * @param bool $echo default true
+     *
      * @return string empty or post title content
      */
     function vpx_the_post_thumbnail_title( $heading_size = 'h2', $echo = true ) {
@@ -93,8 +99,10 @@ if ( ! function_exists( 'vpx_the_title' ) ) {
      * Post title
      *
      * @since Vulpix 1.0.0
+     *
      * @param string $heading_size default h1
      * @param bool $echo default true
+     *
      * @return string empty or title object
      */
     function vpx_the_title( $heading_size = 'h1', $echo = true ) {
@@ -123,7 +131,9 @@ if ( ! function_exists( 'vpx_the_featured_image' ) ) {
      * The featured image
      *
      * @since Vulpix 1.0.0
+     *
      * @param bool $echo default true
+     *
      * @return string empty or featured content
      */
     function vpx_the_featured_image( $echo = true ) {
@@ -155,6 +165,7 @@ if ( ! function_exists( 'vpx_get_the_image_caption' ) ) {
      * Get the image caption text
      *
      * @since Vulpix 1.0.0
+     *
      * @return string empty or image caption text
      */
     function vpx_get_the_image_caption() {
@@ -171,7 +182,9 @@ if ( ! function_exists( 'vpx_the_image_caption' ) ) {
      * The image caption
      *
      * @since Vulpix 1.0.0
+     *
      * @param bool $echo default true
+     *
      * @return string empty or image caption object
      */
     function vpx_the_image_caption( $echo = true ) {
@@ -196,8 +209,10 @@ if ( ! function_exists( 'vpx_return_string_handler' ) ) {
      * Return handler for string
      *
      * @since Vulpix 1.0.0
+     *
      * @param string $value string to feed into the handler
      * @param bool $echo default true
+     *
      * @return string empty or handled string content
      */
     function vpx_return_string_handler( $value, $echo = true ) {
@@ -223,7 +238,9 @@ if ( ! function_exists( 'vpx_the_category' ) ) {
      * The category
      *
      * @since Vulpix 1.0.0
+     *
      * @param bool $echo default true
+     *
      * @return string empty or category object
      */
     function vpx_the_category( $echo = true ) {
@@ -259,9 +276,11 @@ if ( ! function_exists( 'vpx_sidebar' ) ) {
     /**
      * Sidebar
      *
-     * @since 1.0.0
+     * @since Vulpix 1.0.0
+     *
      * @param string $sidebar Sidebar location
      * @param string $class CSS Classes that can be passed in to add to sidebar wrapper
+     *
      * @return string|void
      */
     function vpx_sidebar( $sidebar, $class = '' ) {
@@ -282,11 +301,13 @@ if ( ! function_exists( 'vpx_the_menu' ) ) {
     /**
      * Menu
      *
+     * @since Vulpix 1.0.0
+     *
      * @param string $location Name of menu location
      * @param bool $is_main is this the main navigation
      * @param bool $echo default true
+     *
      * @return string
-     * @since 1.0.0
      */
     function vpx_the_menu( $location, $is_main = false, $echo = true ) {
 
@@ -335,8 +356,9 @@ if ( ! function_exists( 'vpx_the_posts_navigation' ) ) {
     /**
      * Posts pagination
      *
+     * @since Vulpix 1.0.0
+     *
      * @return void
-     * @since 1.0.0
      */
     function vpx_the_posts_navigation() {
         the_posts_pagination(
@@ -373,15 +395,14 @@ if ( ! function_exists( 'vpx_the_posts_navigation' ) ) {
 }
 
 if ( ! function_exists( 'vpx_is_plugin_active' ) ) {
-
 	/**
 	 * Check for active plugin
 	 *
+	 * @since Vulpix 1.0.0
+     *
 	 * @param string $plugin expects `plugin_dir/plugin.php`
 	 *
 	 * @return bool
-	 * @since 1.0.0
-	 *
 	 */
 	function vpx_is_plugin_active( $plugin = '' ) {
 
@@ -404,25 +425,57 @@ if ( ! function_exists( 'vpx_is_plugin_active' ) ) {
 	}
 }
 
-// TODO: Admin message
-function vpx_admin_msg( $error = 'warning', $echo = true ) {
+if ( ! function_exists( 'vpx_admin_msg' ) ) {
+	/**
+	 * Admin message
+	 *
+	 * @since Vulpix 1.0.0
+     *
+	 * @param string $message Text string with message about why you are seeing a notice
+	 * @param string $type The type of message
+	 * @param bool $echo echo or return as string
+	 *
+	 * @return string
+	 *
+	 */
+	function vpx_admin_msg( $message = '', $type = 'warning', $echo = true ) {
 
-	// 4 notice
-    // 3 warning
-    // 2 error
-    // 1 critical
-	if ( ! current_user_can( 'activate_plugins' ) ) {
-	    return '';
-    }
+		// If no message provided or user not allowed to see message then return empty
+		if ( ! $message || ! current_user_can( 'activate_plugins' ) ) {
+			return '';
+		}
 
-	$message = sprintf(
-        '<div class="error notice">
-            <p>⚠️ <strong>%s</strong> This requires your immediate attention </p>
+		// Check for what type of message is to be displayed
+		switch ( $type ) {
+			case 'notice':
+				$symbol = 'ℹ️️';
+				break;
+			case 'warning':
+				$symbol = '⚠️';
+				break;
+			case 'error':
+				$symbol = '❌';
+				break;
+			case 'critical':
+				$symbol = '🛑';
+				break;
+			default:
+				$symbol = '⚠️';
+		}
+
+		// Construct admin message
+		$response = sprintf(
+			'<div class="error notice %1$s">
+            <p>%2$s️ <strong>%3$s</strong> %4$s</p>
         </div>',
-        $error
-    );
+			esc_attr( $type ),
+			esc_html( $symbol ),
+			esc_html( ucfirst( $type ) ),
+			esc_html( $message )
+		);
 
-	return vpx_return_string_handler( $message, $echo);
+		return vpx_return_string_handler( $response, $echo );
+	}
 }
 
 if ( ! function_exists( 'vpx_the_logo' ) ) {

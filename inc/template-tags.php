@@ -466,8 +466,8 @@ if ( ! function_exists( 'vpx_admin_msg' ) ) {
 		// Construct admin message
 		$response = sprintf(
 			'<div class="error notice %1$s">
-            <p>%2$s️ <strong>%3$s</strong> %4$s</p>
-        </div>',
+	            <p>%2$s️ <strong>%3$s</strong> %4$s</p>
+	        </div>',
 			esc_attr( $type ),
 			esc_html( $symbol ),
 			esc_html( ucfirst( $type ) ),

@@ -14,19 +14,48 @@ defined( 'ABSPATH' ) or die( 'Vulpix, use Flamethrower!' );
  * @return void
  */
 function vpx_theme_options_page() {
+
+	// If current user doesn't have permission prevent options from loading
+	if ( ! current_user_can( 'manage_options' ) )  {
+		wp_die( __( 'You do not have sufficient permissions to access this page.', 'vulpix' ) );
+	}
     ?>
     <div class="wrap custom-options">
         <header class="custom-options__header">
-            <img alt="Vulpix theme screenshot" src="<?php echo esc_url( VULPIX_ROOT_URI ); ?>/screenshot.png" />
             <h1><?php echo __( 'Theme Options', 'vulpix' ); ?></h1>
         </header>
-        <form method="post" action="options.php">
-            <?php
-            settings_fields( 'vpx-admin-options' );
-            do_settings_sections( 'vpx-admin-options' );
-            submit_button();
-            ?>
-        </form>
+	    <div class="metabox-holder has-right-sidebar">
+		    <div id="post-body">
+			    <div id="post-body-content">
+				    <div class="meta-box-sortables ui-sortable">
+					    <div class="postbox" style="padding: 1em;">
+						    <h2>Options</h2>
+					        <form method="post" action="options.php">
+						        <p><strong>Header Logo Image URL:</strong><br />
+					                <img class="header_logo" src="<?php echo get_option( 'header_logo' ); ?>" height="100" width="100"/>
+					                <input class="header_logo_url" type="text" name="header_logo" size="60" value="<?php echo get_option( 'header_logo' ); ?>">
+					                <a href="#" class="logo_upload">Upload</a>
+						        </p>
+					            <?php
+					            settings_fields( 'vpx-admin-options' );
+					            do_settings_sections( 'vpx-admin-options' );
+					            submit_button();
+					            ?>
+					        </form>
+					    </div>
+				    </div>
+			    </div>
+		    </div>
+		    <div class="inner-sidebar">
+			    <div id="side-sortables" class="meta-box-sortables ui-sortable">
+				    <div class="postbox" style="padding: 1em;">
+					    <img alt="Vulpix theme" src="<?php echo esc_url( VULPIX_ROOT_URI ); ?>/admin/assets/img/vulpix.jpg" width="100%" height="auto" />
+					    <h2>Vulpix Theme</h2>
+					    <p><a href="https://github.com/baz1414/vulpix-wp-theme" target="_blank">Project GitHub Repo</a></p>
+				    </div>
+			    </div>
+		    </div>
+	    </div>
     </div>
     <?php
 }
@@ -74,7 +103,6 @@ function vpx_admin_option_section() {
         [ 'vpx_disclaimer' ]
     );
 
-
     /**
      * Other Options
      */
@@ -85,7 +113,6 @@ function vpx_admin_option_section() {
         '',
         'vpx-admin-options'
     );
-
 }
 
 /**
@@ -172,5 +199,13 @@ function vpx_callback_select( $args ) {
     }
 }
 
+// TODO: handle admin image
+function vpx_callback_image() {
 
-// TODO: Add method for adding images to WP_Options
+}
+//
+//function vpx_logo_upload() {
+//	if ( is_admin() ) {
+//
+//	}
+//}

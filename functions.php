@@ -22,7 +22,7 @@ define( 'VULPIX_INC', VULPIX_ROOT . '/inc/' );
  *
  * @since Vulpix 1.0.0
  */
-require_once( VULPIX_INC . 'admin.php' );
+require_once( VULPIX_ROOT . '/admin/theme-options.php' );
 require_once( VULPIX_INC . 'plugins.php' );
 require_once( VULPIX_INC . 'shortcodes.php' );
 require_once( VULPIX_INC . 'template-tags.php' );
@@ -101,7 +101,7 @@ function vpx_register_widgets() {
 add_action( 'widgets_init', 'vpx_register_widgets' );
 
 /**
- * Remove default widgets from WP.
+ * Remove default widgets from WP
  *
  * @since Vulpix 1.0.0
  *
@@ -130,7 +130,7 @@ function vpx_remove_default_widgets() {
 add_action( 'widgets_init', 'vpx_remove_default_widgets', 11 );
 
 /**
- * Enqueues style and script files.
+ * Enqueues style and script files
  *
  * @since Vulpix 1.0.0
  *
@@ -138,14 +138,45 @@ add_action( 'widgets_init', 'vpx_remove_default_widgets', 11 );
  */
 function vpx_theme_scripts() {
 
-	/* CSS*/
+	// CSS
 	wp_enqueue_style( 'reflex', get_theme_file_uri( '/assets/css/reflex.min.css' ), null, '2.0.4' );
     wp_enqueue_style( 'vulpix-reset', get_theme_file_uri( '/assets/css/reset.css' ), null, VULPIX_VERSION );
     wp_enqueue_style( 'vulpix-utility', get_theme_file_uri( '/assets/css/utility.css' ), null, VULPIX_VERSION );
 	wp_enqueue_style( 'vulpix-global', get_theme_file_uri( '/assets/css/global.css' ), [ 'vulpix-reset', 'vulpix-utility' ], VULPIX_VERSION );
 
-	/* JS */
+	// JS
 	wp_enqueue_script( 'html5shiv', get_theme_file_uri( '/assets/js/html5shiv.js' ), [ 'jquery' ], VULPIX_VERSION, true );
 	wp_enqueue_script( 'vulpix-scripts', get_theme_file_uri( '/assets/js/scripts.js' ), [ 'jquery' ], VULPIX_VERSION, true );
 }
 add_action( 'wp_enqueue_scripts', 'vpx_theme_scripts' );
+
+/**
+ * Enqueue admin styles and scripts
+ *
+ * @since Vulpix 1.0.0
+ *
+ * @return void
+ */
+function vpx_admin_scripts() {
+
+	if ( ! is_admin() ) {
+		return;
+	}
+
+	// If admin page is theme options
+	if ( 'vpx-admin-options' === $_GET['page'] ) {
+
+		// Enqueue admin scripts
+		wp_enqueue_script( 'vpx-admin-scripts', VULPIX_ROOT_URI . '/admin/assets/js/admin-scripts.js', [ 'jquery' ], VULPIX_VERSION, true );
+
+		// Get WordPress Core components to enable media upload
+		if ( function_exists( 'wp_enqueue_media' ) ) {
+			wp_enqueue_media();
+		} else {
+			wp_enqueue_style( 'thickbox' );
+			wp_enqueue_script( 'media-upload' );
+			wp_enqueue_script( 'thickbox' );
+		}
+	}
+}
+add_action( 'admin_enqueue_scripts', 'vpx_admin_scripts' );

@@ -49,9 +49,9 @@ function vpx_theme_options_page() {
 		    <div class="inner-sidebar">
 			    <div id="side-sortables" class="meta-box-sortables ui-sortable">
 				    <div class="postbox" style="padding: 1em;">
-					    <img alt="Vulpix theme" src="<?php echo esc_url( VULPIX_ROOT_URI ); ?>/admin/assets/img/vulpix.jpg" width="100%" height="auto" />
+					    <img alt="Vulpix theme" src="<?php echo esc_url( VULPIX_ROOT_URI . '/admin/assets/img/vulpix.jpg' ); ?>" width="100%" height="auto" />
 					    <h2>Vulpix Theme</h2>
-					    <p><a href="https://github.com/baz1414/vulpix-wp-theme" target="_blank">Project GitHub Repo</a></p>
+					    <p><a href="<?php esc_html( 'https://github.com/baz1414/vulpix-wp-theme' ); ?>" target="_blank">Project GitHub Repo</a></p>
 				    </div>
 			    </div>
 		    </div>

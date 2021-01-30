@@ -159,6 +159,7 @@ add_action( 'wp_enqueue_scripts', 'vpx_theme_scripts' );
  */
 function vpx_admin_scripts() {
 
+	// If not in admin template don't load scripts
 	if ( ! is_admin() ) {
 		return;
 	}

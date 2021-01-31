@@ -144,6 +144,7 @@ function vpx_theme_scripts() {
 		wp_enqueue_style( 'vulpix-singular', get_theme_file_uri( '/assets/css/singular.css' ), null, VULPIX_VERSION );
 	}
 
+	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap' );
 	wp_enqueue_style( 'reflex', get_theme_file_uri( '/assets/css/reflex.min.css' ), null, '2.0.4' );
     wp_enqueue_style( 'vulpix-reset', get_theme_file_uri( '/assets/css/reset.css' ), null, VULPIX_VERSION );
     wp_enqueue_style( 'vulpix-utility', get_theme_file_uri( '/assets/css/utility.css' ), null, VULPIX_VERSION );

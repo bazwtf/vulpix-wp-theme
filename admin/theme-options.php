@@ -51,7 +51,7 @@ function vpx_theme_options_page() {
 				    <div class="postbox" style="padding: 1em;">
 					    <img alt="Vulpix theme" src="<?php echo esc_url( VULPIX_ROOT_URI . '/admin/assets/img/vulpix.jpg' ); ?>" width="100%" height="auto" />
 					    <h2>Vulpix Theme</h2>
-					    <p><a href="<?php esc_html( 'https://github.com/baz1414/vulpix-wp-theme' ); ?>" target="_blank">Project GitHub Repo</a></p>
+					    <p><a href="<?php esc_url( 'https://github.com/baz1414/vulpix-wp-theme' ); ?>" target="_blank">Project GitHub Repo</a></p>
 				    </div>
 			    </div>
 		    </div>
@@ -200,9 +200,9 @@ function vpx_callback_select( $args ) {
 }
 
 // TODO: handle admin image
-function vpx_callback_image() {
-
-}
+//function vpx_callback_image() {
+//
+//}
 //
 //function vpx_logo_upload() {
 //	if ( is_admin() ) {

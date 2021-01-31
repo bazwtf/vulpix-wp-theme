@@ -2,6 +2,21 @@
  * Global
  */
 
+
+/* Vars */
+:root {
+    --vpx-dark-grey: #1B1C1E;
+    --vpx-light-grey: #BC2A2A;
+    --vpx-primary-red: #BC2A2A;
+}
+
 .--full-width {
     width: 100%;
+}
+
+html {
+    background-color: #1B1C1E;
+    background-color: var(--vpx-dark-grey);
+    color: #FFF;
+    font-family: "Roboto", sans-serif;
 }

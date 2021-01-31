@@ -8,7 +8,6 @@ defined( 'ABSPATH' ) or die();
  * @since Vulpix 1.0.0
  */
 
-// TODO: Implement bespoke home page with options
 get_header();
 ?>
 <main role="main" class="container">
@@ -17,7 +16,7 @@ get_header();
 		// Archive title
 		printf( __( '<h1 class="col-12 --center">%s</h1>', 'vulpix' ), get_bloginfo( 'name' ) );
 
-		get_template_part( 'template-part/blocks/block', 'hero' );
+		vpx_get_home_block();
 
 		if ( have_posts() ) {
 			while ( have_posts() ) {

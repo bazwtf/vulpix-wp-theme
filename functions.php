@@ -139,6 +139,11 @@ add_action( 'widgets_init', 'vpx_remove_default_widgets', 11 );
 function vpx_theme_scripts() {
 
 	// CSS
+	// If singular (post/page)
+	if ( is_singular() ) {
+		wp_enqueue_style( 'vulpix-singular', get_theme_file_uri( '/assets/css/singular.css' ), null, VULPIX_VERSION );
+	}
+
 	wp_enqueue_style( 'reflex', get_theme_file_uri( '/assets/css/reflex.min.css' ), null, '2.0.4' );
     wp_enqueue_style( 'vulpix-reset', get_theme_file_uri( '/assets/css/reset.css' ), null, VULPIX_VERSION );
     wp_enqueue_style( 'vulpix-utility', get_theme_file_uri( '/assets/css/utility.css' ), null, VULPIX_VERSION );

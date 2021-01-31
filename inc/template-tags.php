@@ -465,8 +465,12 @@ if ( ! function_exists( 'vpx_admin_msg' ) ) {
 
 		// Construct admin message
 		$response = sprintf(
-			'<div class="error notice %1$s">
-	            <p>%2$s️ <strong>%3$s</strong> %4$s</p>
+			'<div class="container">
+                <div class="grid">
+                    <div class="col-4 offset-4 notice %1$s">
+	                    <p>%2$s️ <strong>%3$s</strong> %4$s</p>
+                    </div>
+                </div>
 	        </div>',
 			esc_attr( $type ),
 			esc_html( $symbol ),
@@ -476,6 +480,13 @@ if ( ! function_exists( 'vpx_admin_msg' ) ) {
 
 		return vpx_return_string_handler( $response, $echo );
 	}
+}
+
+
+function vpx_get_home_block() {
+
+	get_template_part( 'template-parts/blocks/block', 'hero' );
+	return;
 }
 
 if ( ! function_exists( 'vpx_the_logo' ) ) {

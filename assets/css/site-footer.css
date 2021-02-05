@@ -1,0 +1,8 @@
+/**
+ * Site footer
+ */
+
+.site-footer {
+    background-color: var(--vpx-dark-grey);
+    color: white;
+}

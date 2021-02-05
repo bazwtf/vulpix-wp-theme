@@ -2,12 +2,16 @@
  * Global
  */
 
-
 /* Vars */
 :root {
+    /* Colours */
     --vpx-dark-grey: #1B1C1E;
     --vpx-light-grey: #BC2A2A;
     --vpx-primary-red: #BC2A2A;
+
+    /* Fonts */
+    --vpx-primary-font: 'Roboto', sans-serif;
+    --vpx-secondary-font: 'Oswald', sans-serif;
 }
 
 .--full-width {
@@ -18,5 +22,5 @@ html {
     background-color: #1B1C1E;
     background-color: var(--vpx-dark-grey);
     color: #FFF;
-    font-family: "Roboto", sans-serif;
+    font-family: var(--vpx-primary-font);
 }

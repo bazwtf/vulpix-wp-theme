@@ -22,7 +22,7 @@ define( 'VULPIX_INC', VULPIX_ROOT . '/inc/' );
  *
  * @since Vulpix 1.0.0
  */
-require_once( VULPIX_ROOT . '/admin/theme-options.php' );
+require_once( VULPIX_ROOT . '/admin/theme-settings.php' );
 require_once( VULPIX_INC . 'plugins.php' );
 require_once( VULPIX_INC . 'shortcodes.php' );
 require_once( VULPIX_INC . 'template-tags.php' );
@@ -75,7 +75,7 @@ function vpx_register_widgets() {
     // Register sidebar for center footer
     register_sidebar(
         [
-            'name'           => __( 'center Panel', 'vulpix' ),
+            'name'           => __( 'Center Panel', 'vulpix' ),
             'id'             => 'sidebar-footer-center',
             'description'    => __( 'Widgets in this area will be shown on all posts and pages.', 'vulpix' ),
             'before_widget'  => '<li id="%1$s" class="widget %2$s">',
@@ -146,9 +146,8 @@ function vpx_theme_scripts() {
 
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap' );
 	wp_enqueue_style( 'reflex', get_theme_file_uri( '/assets/css/reflex.min.css' ), null, '2.0.4' );
-    wp_enqueue_style( 'vulpix-reset', get_theme_file_uri( '/assets/css/reset.css' ), null, VULPIX_VERSION );
-    wp_enqueue_style( 'vulpix-utility', get_theme_file_uri( '/assets/css/utility.css' ), null, VULPIX_VERSION );
-	wp_enqueue_style( 'vulpix-global', get_theme_file_uri( '/assets/css/global.css' ), [ 'vulpix-reset', 'vulpix-utility' ], VULPIX_VERSION );
+	wp_enqueue_style( 'vulpix-imports', get_theme_file_uri( '/assets/css/imports.css' ), null, VULPIX_VERSION );
+	wp_enqueue_style( 'vulpix-global', get_theme_file_uri( '/assets/css/global.css' ), [ 'vulpix-imports' ], VULPIX_VERSION );
 
 	// JS
 	wp_enqueue_script( 'html5shiv', get_theme_file_uri( '/assets/js/html5shiv.js' ), [ 'jquery' ], VULPIX_VERSION, true );

@@ -211,19 +211,19 @@ if ( ! function_exists( 'vpx_return_string_handler' ) ) {
      * @since Vulpix 1.0.0
      *
      * @param string $value string to feed into the handler
-     * @param bool $echo default true
+     * @param bool|string $echo default true
      *
      * @return string empty or handled string content
      */
     function vpx_return_string_handler( $value, $echo = true ) {
 
         // If no $value then return
-        if ( ! $value ) {
+        if ( ! isset( $value ) ) {
             return '';
         }
 
-        // If $echo is true then echo $value
-        if ( true === $echo ) {
+        // If $echo is truthy then echo $value
+        if ( $echo ) {
             echo $value;
             return '';
         }
@@ -398,13 +398,13 @@ if ( ! function_exists( 'vpx_is_plugin_active' ) ) {
 	/**
 	 * Check for active plugin
 	 *
-	 * @since Vulpix 1.0.0
-     *
 	 * @param string $plugin expects `plugin_dir/plugin.php`
 	 *
 	 * @return bool
+	 * @since Vulpix 1.0.0
+	 *
 	 */
-	function vpx_is_plugin_active( $plugin = '' ) {
+	function vpx_is_plugin_active( $plugin = '', $admin = false ) {
 
 		// Check to see if a plugin has been provided as a parameter
 		if ( empty( $plugin ) ) {
@@ -412,7 +412,7 @@ if ( ! function_exists( 'vpx_is_plugin_active' ) ) {
 		}
 
 		// If function is not being called in admin area, include `plugin.php`
-		if ( ! is_admin() ) {
+		if ( true === $admin ) {
 			include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 		}
 
@@ -468,7 +468,7 @@ if ( ! function_exists( 'vpx_admin_msg' ) ) {
 			'<div class="container">
                 <div class="grid">
                     <div class="col-4 offset-4 notice %1$s">
-	                    <p>%2$s️ <strong>%3$s</strong> %4$s</p>
+	                    <p>%2$s️<strong>%3$s</strong> %4$s</p>
                     </div>
                 </div>
 	        </div>',
@@ -482,17 +482,52 @@ if ( ! function_exists( 'vpx_admin_msg' ) ) {
 	}
 }
 
-
 function vpx_get_home_block() {
 
 	get_template_part( 'template-parts/blocks/block', 'hero' );
 	return;
 }
 
+
 if ( ! function_exists( 'vpx_the_logo' ) ) {
-    // TODO: Write and add logo function
-    function vpx_the_logo($echo = true) {
-        echo 'Logo';
-        return '';
+
+    function vpx_the_logo( $location = 'header', $echo = true ) {
+
+	    // Check for what logo type to use
+	    switch ( $location ) {
+		    case 'header':
+			    $img_url = get_field( 'vpx_site_header_logo', 'option' );
+			    break;
+		    case 'footer':
+			    $img_url = get_field( 'vpx_site_footer_logo', 'option' );
+			    break;
+		    default:
+			    $img_url = get_field( 'vpx_site_header_logo', 'option' );
+	    }
+
+	    // if no $img_url available then set up logotype
+    	if ( ! $img_url ) {
+    		$logo = sprintf( '<span>%s</span>', esc_html( __( get_bloginfo( 'name' ), 'vulpix' ) ) );
+	    }
+
+    	// Build logo image attributes
+    	if ( $img_url ) {
+    		$logo = sprintf(
+                '<img src="%1$s" alt="%2$s" />',
+			    esc_url( $img_url ),
+			    esc_attr( get_bloginfo( 'name' ) . ' logo' )
+		    );
+	    }
+
+    	// Build logo component for output
+    	$logo = sprintf(
+            '<div class="logo">
+				<a href="%1$s" class="logo-link">%2$s</a>
+			</div>',
+		    esc_url( site_url() ),
+		    wp_kses_post( $logo )
+	    );
+
+        return vpx_return_string_handler( $logo, $echo );
     }
 }

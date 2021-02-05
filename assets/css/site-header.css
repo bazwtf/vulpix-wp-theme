@@ -2,4 +2,13 @@
  * Site header
  */
 
-.site-header {}
+.site-header .nav-menu--button {
+    background-color: var(--vpx-dark-grey);
+    color: white;
+    border: none;
+    padding: .25em;
+}
+
+.site-header .nav-menu--button::after {
+    content: '\2630';
+}

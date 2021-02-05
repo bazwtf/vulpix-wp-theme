@@ -13,10 +13,8 @@ get_header();
 <main role="main" class="container">
 	<div class="grid">
 		<?php
-		// Archive title
+		// Site name as title
 		printf( __( '<h1 class="col-12 --center">%s</h1>', 'vulpix' ), get_bloginfo( 'name' ) );
-
-		vpx_get_home_block();
 
 		if ( have_posts() ) {
 			while ( have_posts() ) {

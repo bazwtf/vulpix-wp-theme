@@ -8,7 +8,7 @@ defined( 'ABSPATH' ) or die( 'Vulpix, use Flamethrower!' );
  */
 
 ?>
-<header id="site-header" role="banner" class="container">
+<header role="banner" class="site-header container">
     <div class="grid">
         <div class="col-md-3 col-sm-4"><?php vpx_the_logo(); ?></div>
         <div class="col-sm-2 offset-sm-4 col-md-1 offset-md-7"><?php vpx_the_basket(); ?></div>

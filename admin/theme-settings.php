@@ -30,16 +30,9 @@ if ( function_exists( 'acf_add_local_field_group' ) ) {
 
 	acf_add_local_field_group(
 		[
-			'key'                   => 'group_thank_you_message',
+			'key'                   => 'group_theme_settings',
 			'title'                 => 'Thank You Message',
 			'fields'                => [
-				[
-					'key'          => 'field_subs_thank_you_title',
-					'label'        => 'Title',
-					'name'         => 'thank_you_title',
-					'type'         => 'text',
-					'required'     => 1,
-				],
 				[
 					'key'           => 'vpx_site_header_logo',
 					'label'         => 'Header Logo',

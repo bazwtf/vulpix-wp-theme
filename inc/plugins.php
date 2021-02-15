@@ -13,9 +13,6 @@ function vpx_the_basket() {
     // Check to see if WooCommerce is active
     if ( ! vpx_is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 
-    	// Post admin message
-	    vpx_admin_msg( 'Plugin: WooCommerce is not enabled.', 'warning', true );
-
         return '';
     }
 

@@ -404,17 +404,15 @@ if ( ! function_exists( 'vpx_is_plugin_active' ) ) {
 	 * @since Vulpix 1.0.0
 	 *
 	 */
-	function vpx_is_plugin_active( $plugin = '', $admin = false ) {
+	function vpx_is_plugin_active( $plugin = '' ) {
 
 		// Check to see if a plugin has been provided as a parameter
 		if ( empty( $plugin ) ) {
 			return false;
 		}
 
-		// If function is not being called in admin area, include `plugin.php`
-		if ( true === $admin ) {
-			include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-		}
+		// Include `plugin.php`
+		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 		// Check whether $plugin is active
 		if ( is_plugin_active( $plugin ) ) {
@@ -438,7 +436,7 @@ if ( ! function_exists( 'vpx_admin_msg' ) ) {
 	 * @return string
 	 *
 	 */
-	function vpx_admin_msg( $message = '', $type = 'warning', $echo = true ) {
+	function vpx_admin_msg( $message = '', $type = 'warning', $dismiss = true, $echo = true ) {
 
 		// If no message provided or user not allowed to see message then return empty
 		if ( ! $message || ! current_user_can( 'activate_plugins' ) ) {
@@ -447,7 +445,7 @@ if ( ! function_exists( 'vpx_admin_msg' ) ) {
 
 		// Check for what type of message is to be displayed
 		switch ( $type ) {
-			case 'notice':
+			case 'info':
 				$symbol = 'ℹ️️';
 				break;
 			case 'warning':
@@ -456,23 +454,24 @@ if ( ! function_exists( 'vpx_admin_msg' ) ) {
 			case 'error':
 				$symbol = '❌';
 				break;
-			case 'critical':
-				$symbol = '🛑';
+			case 'success':
+				$symbol = '✅';
 				break;
 			default:
-				$symbol = '⚠️';
+				$symbol = 'ℹ️️️';
 		}
 
 		// Construct admin message
 		$response = sprintf(
 			'<div class="container">
                 <div class="grid">
-                    <div class="col-4 offset-4 notice %1$s">
-	                    <p>%2$s️<strong>%3$s</strong> %4$s</p>
+                    <div class="col-4 offset-4 notice notice-%1$s %2$s">
+	                    <p>%3$s ️<strong>%4$s:</strong> %5$s</p>
                     </div>
                 </div>
 	        </div>',
 			esc_attr( $type ),
+			( true === $dismiss ? esc_attr( 'is-dismissible' ) : '' ),
 			esc_html( $symbol ),
 			esc_html( ucfirst( $type ) ),
 			esc_html( $message )
@@ -491,18 +490,35 @@ function vpx_get_home_block() {
 
 if ( ! function_exists( 'vpx_the_logo' ) ) {
 
+	/**
+	 * Theme logo
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $location
+	 * @param bool $echo
+	 *
+	 * @return string
+	 */
     function vpx_the_logo( $location = 'header', $echo = true ) {
 
-	    // Check for what logo type to use
-	    switch ( $location ) {
-		    case 'header':
-			    $img_url = get_field( 'vpx_site_header_logo', 'option' );
-			    break;
-		    case 'footer':
-			    $img_url = get_field( 'vpx_site_footer_logo', 'option' );
-			    break;
-		    default:
-			    $img_url = get_field( 'vpx_site_header_logo', 'option' );
+    	// Set default for $img_url
+	    $img_url = '';
+
+	    // Check for ACF plugin
+    	if ( vpx_is_plugin_active(VPX_ACF ) ) {
+
+		    // Check for what logo type to use
+		    switch ( $location ) {
+			    case 'header':
+				    $img_url = get_field( 'vpx_site_header_logo', 'option' );
+				    break;
+			    case 'footer':
+				    $img_url = get_field( 'vpx_site_footer_logo', 'option' );
+				    break;
+			    default:
+				    $img_url = '';
+		    }
 	    }
 
 	    // if no $img_url available then set up logotype

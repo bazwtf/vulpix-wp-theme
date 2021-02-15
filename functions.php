@@ -16,6 +16,8 @@ define( 'VULPIX_VERSION', wp_get_theme( basename( __DIR__ ) )->get( 'Version' ) 
 define( 'VULPIX_ROOT', get_template_directory() );
 define( 'VULPIX_ROOT_URI', get_template_directory_uri() );
 define( 'VULPIX_INC', VULPIX_ROOT . '/inc/' );
+define( 'VPX_ACF', 'advanced-custom-fields-pro/acf.php' );
+define( 'VPX_WOO', 'woocommerce/woocommerce.php' );
 
 /**
  * Required
